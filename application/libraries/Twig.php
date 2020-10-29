@@ -25,7 +25,12 @@ class Twig
 	 * @var array Twig Environment Options
 	 * @see http://twig.sensiolabs.org/doc/api.html#environment-options
 	 */
-	private $config = [];
+	//private $config = [];
+
+	private $config = [
+		'paths' => [FCPATH . '/themes', VIEWPATH],
+		'cache' => '/path/to/twig/cache',
+	];
 
 	/**
 	 * @var array Functions to add to Twig
