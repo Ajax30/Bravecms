@@ -39,7 +39,12 @@ class Posts extends CI_Controller {
 
     	//use limit and offset returned by _initPaginator method
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
-		$this->load->theme_view('/themes/caminar/', 'layout', $data);
+
+		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
+		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
+		$this->twig->addGlobal('maincss', base_url('application/views/themes/caminar/assets/css/main.css'));
+
+		$this->twig->display('themes/caminar/layout', $data);
 	}
 
 	public function search() {
@@ -106,6 +111,10 @@ class Posts extends CI_Controller {
 		$data['post'] = $this->Posts_model->get_post($slug);
 		$data['author_image'] = isset($data['post']->avatar) && $data['post']->avatar !== '' ? $data['post']->avatar : 'default-avatar.png';
 
+		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
+        $this->twig->addGlobal('maincss', base_url('application/views/themes/caminar/assets/css/main.css'));
+        $this->twig->addGlobal('siteTitle', 'My Awesome Site');
+
 		if ($data['categories']) {
 			foreach ($data['categories'] as &$category) {
 				$category->posts_count = $this->Posts_model->count_posts_in_category($category->id);
@@ -120,14 +129,16 @@ class Posts extends CI_Controller {
 			$post_id = $data['post']->id;
 			$data['comments'] = $this->Comments_model->get_comments($post_id);
 
-			$this->load->view('dashboard/partials/header', $data);
-			$this->load->view('post');
+				// Added inner content block Twig template file path, this path included in "themes/caminar/layout.twig"
+				$this->twig->addGlobal('innerTwig','themes/caminar/templates/singlepost.twig');
+				$this->twig->display('themes/caminar/layout', $data);
 		} else {
-			$data['tagline'] = "Page not found";
-			$this->load->view('dashboard/partials/header', $data);
-			$this->load->view('404');
+				$data['tagline'] = "Page not found";
+				$this->load->view('dashboard/partials/header', $data);
+				$this->load->view('404');
+				$this->load->view('dashboard/partials/footer');
+
 		}
-		$this->load->view('dashboard/partials/footer');
 	}
 
 }

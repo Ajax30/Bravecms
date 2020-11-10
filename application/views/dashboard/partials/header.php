@@ -14,10 +14,8 @@
   <script src="<?php echo base_url('assets/lib/ckeditor/ckeditor.js')?>"></script>
   <?php endif ?>
   <title><?php echo $site_title . " | " . $tagline; ?></title>
-  <?php if (isset($post->title)): ?>
 </head>
 <body>
-  
 	<div class="site-wrapper">
 		<nav class="navbar sticky-top navbar-dark bg-dark flex-wrap2 flex-md-nowrap p-0 py-md-1">
 			<a class="navbar-brand col-auto mr-0 px-2 pl-md-1" href="<?php echo base_url(); ?>">

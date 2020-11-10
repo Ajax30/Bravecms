@@ -1,0 +1,28 @@
+{
+    "name": "kenjis/codeigniter-ss-twig",
+    "description": "A Simple and Secure Twig integration for CodeIgniter 3.x",
+    "keywords": [
+        "codeigniter",
+        "twig"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kenji Suzuki",
+            "homepage": "https://github.com/kenjis/codeigniter-ss-twig"
+        }
+    ],
+    "require": {
+        "php": ">=5.4.0",
+        "twig/twig": "~1.38"
+    },
+    "require-dev": {
+        "codeigniter/framework": "3.1.*",
+        "phpunit/phpunit": "^5.6"
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
+        }
+    }
+}

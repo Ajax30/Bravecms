@@ -9,7 +9,8 @@ class Register extends CI_Controller {
 
 	public function index() {
 		$data = $this->Static_model->get_static_data();
-		$data['pages'] = $this->Pages_model->get_pages();
+		// Until not registered a user (author) and not exists any content, this cause an error:
+		//$data['pages'] = $this->Pages_model->get_pages();
 		$data['tagline'] = 'Want to write for ' . $data['site_title'] . '? Create an account.';
 		$data['categories'] = $this->Categories_model->get_categories();
 
