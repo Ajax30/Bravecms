@@ -4,7 +4,7 @@
 		<title>{{siteTitle}} | {{tagline}}</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="<?php echo base_url('themes/caminar/assets/css/main.css')?>">
+		<link rel="stylesheet" href="{{main_css}}">
 	</head>
 	<body>
 
@@ -13,12 +13,19 @@
 			<div class="logo"><a href="/">{{siteTitle}}</a></div>
 		</header>
 
-		<!-- Main -->
-		<section id="main">
-			<div class="inner">
-				<?php $this->load->theme_view('/themes/caminar/templates', 'posts'); ?>
-			</div>
-		</section>
+		{% if innerTwig is defined %}
+			{{include(innerTwig)}}
+		{% else %}
+			<!-- Main -->
+			<section id="main">
+				<div class="inner">
+					{{posts_view}}
+					{{ include('themes/caminar/templates/posts.twig') }}
+				</div>
+			</section>
+		{% endif %}>
+
+
 
 		<!-- Footer -->
 		<footer id="footer">

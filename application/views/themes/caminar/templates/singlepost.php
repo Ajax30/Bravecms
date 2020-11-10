@@ -3,16 +3,18 @@
 		<h2>{{post.title}}</h2>
 
 		<p class="meta clearfix">
-			<span class="pull-left">By <a href="posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a></span>
+			<span class="pull-left">By <a href="/posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a></span>
 
-			<span class="pull-right">Published on {{post.created_at  | dateParse | date : "MMMM dd y"}} in <a href="categories/posts/{{post.cat_id}}" title="All posts in {{post.category_name}}">{{post.category_name}}</a></span>
+			<span class="pull-right">Published on {{post.created_at | date("M d, Y")}} in <a href="categories/posts/{{post.cat_id}}" title="All posts in {{post.category_name}}">{{post.category_name}}</a></span>
 		</p>
 
 		<div class="image fit">
-			<img src="./assets/img/posts/{{post.post_image}}" alt="{{post.title}}">
+			<img src="/assets/img/posts/{{post.post_image}}" alt="{{post.title}}">
 		</div>
 
-		<div class="post-content"></div>
+		<div class="post-content">
+			{{post.content | raw}}
+		</div>
 
 		<div class="comments-form">
 			<h3>Leave a comment</h3>
@@ -47,7 +49,7 @@
 		<div class="comments">
 			<h3>Comments</h3>
 			<div class="comment">
-				<h4>On {{comment.created_at  | dateParse | date : "MMMM dd y"}}, {{comment.name}} wrote:</h4>
+				<h4>On {{comment.created_at  | date("M d, Y")}}, {{comment.name}} wrote:</h4>
 				<p>{{comment.comment}}</p>
 			</div>
 		</div>
