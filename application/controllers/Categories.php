@@ -25,6 +25,7 @@ class Categories extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data = $this->Static_model->get_static_data();
+		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories();
 		$data['category_name'] = $this->Categories_model->get_category($category_id)->name;

@@ -34,6 +34,7 @@ class Posts extends CI_Controller {
 		$config = $this->_initPagination("/", $this->Posts_model->get_num_rows());
 
 		$data = $this->Static_model->get_static_data();
+		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories();  
 
@@ -60,6 +61,7 @@ class Posts extends CI_Controller {
 			$query_string_segment = 'page';
 			$config = $this->_initPagination("/posts/search", $posts_count, $query_string_segment);
 			$data = $this->Static_model->get_static_data();
+			$data['base_url'] = base_url("/");
 			$data['pages'] = $this->Pages_model->get_pages();
 			$data['categories'] = $this->Categories_model->get_categories();
       //use limit and offset returned by _initPaginator method
@@ -89,6 +91,7 @@ class Posts extends CI_Controller {
 		$this->pagination->initialize($config);
 
 		$data = $this->Static_model->get_static_data();
+		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories(); 
 		$data['posts'] = $this->Posts_model->get_posts_by_author($authorid, $limit, $offset); 

@@ -3,7 +3,7 @@
 		{% if loop.first %}
 			<div class="image fit flush">
 				<a href="{{post.slug}}">
-					<img src="/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
+					<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
 				</a>
 			</div>
 			<header class="special">
@@ -15,14 +15,14 @@
 			<div class="spotlight {% if (loop.index is even) %}alt{% else %}{% endif %}">
 				<div class="image flush">
 					<a href="{{post.slug}}">
-						<img src="/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
+						<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
 					</a>
 				</div>
 				<div class="inner">
 					<h3>{{post.title}}</h3>
 					<p>{{post.description}}</p>
 					<div class="{% if (loop.index is even) %}text-right{% else %}text-left{% endif %}">
-						<a href="{{post.slug}}" class="button special small">Read More</a>
+						<a href="{{base_url}}{{post.slug}}" class="button special small">Read More</a>
 					</div>
 				</div>
 			</div>
@@ -31,3 +31,7 @@
 </section>
 
 <div class="pagination-container"></div>
+
+
+
+
