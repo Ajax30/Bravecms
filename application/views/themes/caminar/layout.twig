@@ -19,6 +19,8 @@
 					{{include(singlePost)}}
 				{% elseif pageTemplate is defined  %}
 					{{include(pageTemplate)}}
+				{% elseif notFound is defined  %}
+					{{include(notFound)}}
 				{% else %}
 					{{posts_view}}
 					{{ include('themes/caminar/templates/posts.twig') }}				
