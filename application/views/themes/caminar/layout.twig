@@ -14,15 +14,14 @@
 		</header>
 
 		<section id="main">
-				<div class="inner">
-					{% if innerTwig is defined %}
-						{{include(innerTwig)}}
-					{% else %}
-						<!-- Main -->			
-						{{posts_view}}
-						{{ include('themes/caminar/templates/posts.twig') }}				
-					{% endif %}>
-				</div>
+			<div class="inner">
+				{% if innerTwig is defined %}
+					{{include(innerTwig)}}
+				{% else %}
+					{{posts_view}}
+					{{ include('themes/caminar/templates/posts.twig') }}				
+				{% endif %}>
+			</div>
 		</section>
 
 
@@ -42,7 +41,6 @@
 						<a href="./pages/page/{{page.id}}">{{page.title}}</a>
 					</li>
 				</ul>
-
 			</div>
 			<div class="copyright">
 				&copy; {{companyName}}. All rights reserved. Design by <a href="https://templated.co" target="_blank">TEMPLATED</a>

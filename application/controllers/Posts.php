@@ -41,9 +41,7 @@ class Posts extends CI_Controller {
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
 
 		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
-		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
 		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
-
 		$this->twig->display('themes/caminar/layout', $data);
 	}
 
@@ -128,10 +126,8 @@ class Posts extends CI_Controller {
 			// Get post comments
 			$post_id = $data['post']->id;
 			$data['comments'] = $this->Comments_model->get_comments($post_id);
-
-				// Added inner content block Twig template file path, this path included in "themes/caminar/layout.twig"
-				$this->twig->addGlobal('innerTwig','themes/caminar/templates/singlepost.twig');
-				$this->twig->display('themes/caminar/layout', $data);
+			$this->twig->addGlobal('innerTwig','themes/caminar/templates/singlepost.twig');
+			$this->twig->display('themes/caminar/layout', $data);
 		} else {
 				$data['tagline'] = "Page not found";
 				$this->load->view('dashboard/partials/header', $data);

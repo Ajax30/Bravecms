@@ -42,10 +42,16 @@
 
 		<div class="comments">
 			<h3>Comments</h3>
-			<div class="comment">
-				<h4>On {{comment.created_at  | date("M d, Y")}}, {{comment.name}} wrote:</h4>
-				<p>{{comment.comment}}</p>
-			</div>
+			{% if comments %}
+				{% for comment in comments %}
+				<div class="comment">
+					<h4>On {{comment.created_at  | date("M d, Y")}}, {{comment.name}} wrote:</h4>
+					<p>{{comment.comment}}</p>
+				</div>
+				{% endfor %}
+				{% else %}
+					<p>There are no comments yet</p>
+				{% endif %}
 		</div>
 
 	</div>
