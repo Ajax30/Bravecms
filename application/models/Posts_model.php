@@ -98,6 +98,13 @@ class Posts_model extends CI_Model {
 				$data->last_name = '';
 				$data->avatar = '';
 			}
+
+			$category_query = $this->db->get_where('categories', array('id' => $data->cat_id));
+			if ($category_query->num_rows() == 1) {
+				$category = $category_query->row();
+				$data->category_name = $category->name;    
+			}
+			
 			return $data;
 		}
 	}
