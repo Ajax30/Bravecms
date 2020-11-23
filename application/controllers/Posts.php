@@ -66,9 +66,9 @@ class Posts extends CI_Controller {
 			$data['posts'] = $this->Posts_model->search($expression, $config['limit'], $config['offset']);
 			$data['expression'] = $expression;
 			$data['posts_count'] = $posts_count;
-			$this->load->view('dashboard/partials/header', $data);
-			$this->load->view('search');
-			$this->load->view('dashboard/partials/footer');
+			$this->twig->addGlobal('siteTitle', 'My Awesome Site');
+			$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
+			$this->twig->display('themes/caminar/layout', $data);
 		}
 	} 
 
@@ -95,9 +95,9 @@ class Posts extends CI_Controller {
 		$data['posts_count'] = $this->Posts_model->posts_by_author_count($authorid); 
 		$data['posts_author'] = $this->Posts_model->posts_author($authorid);
 
-		$this->load->view('dashboard/partials/header', $data);
-		$this->load->view('posts_by_author');
-		$this->load->view('dashboard/partials/footer');
+		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
+		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
+		$this->twig->display('themes/caminar/layout', $data);
 	}
 
 	public function post($slug) {
@@ -130,9 +130,8 @@ class Posts extends CI_Controller {
 			$this->twig->display('themes/caminar/layout', $data);
 		} else {
 				$data['tagline'] = "Page not found";
-				$this->load->view('dashboard/partials/header', $data);
-				$this->load->view('404');
-				$this->load->view('dashboard/partials/footer');
+				$this->twig->addGlobal('notFound','themes/caminar/templates/404.twig');
+				$this->twig->display('themes/caminar/layout', $data);
 
 		}
 	}
