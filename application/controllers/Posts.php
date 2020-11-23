@@ -126,7 +126,7 @@ class Posts extends CI_Controller {
 			// Get post comments
 			$post_id = $data['post']->id;
 			$data['comments'] = $this->Comments_model->get_comments($post_id);
-			$this->twig->addGlobal('innerTwig','themes/caminar/templates/singlepost.twig');
+			$this->twig->addGlobal('singlePost','themes/caminar/templates/singlepost.twig');
 			$this->twig->display('themes/caminar/layout', $data);
 		} else {
 				$data['tagline'] = "Page not found";

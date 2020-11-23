@@ -15,8 +15,10 @@
 
 		<section id="main">
 			<div class="inner">
-				{% if innerTwig is defined %}
-					{{include(innerTwig)}}
+				{% if singlePost is defined %}
+					{{include(singlePost)}}
+				{% elseif pageTemplate is defined  %}
+					{{include(pageTemplate)}}
 				{% else %}
 					{{posts_view}}
 					{{ include('themes/caminar/templates/posts.twig') }}				

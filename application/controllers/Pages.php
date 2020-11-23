@@ -25,9 +25,11 @@ class Pages extends CI_Controller {
 		if (!empty($data['page'])) {
 				// Overwrite the default tagline with the page title
 				$data['tagline'] = $data['page']->title;
-
 				$this->load->view('dashboard/partials/header', $data);
-				$this->load->view('page');
+				$this->twig->addGlobal('siteTitle', 'My Awesome Site');
+				$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
+				$this->twig->addGlobal('pageTemplate','themes/caminar/templates/page.twig');
+				$this->twig->display('themes/caminar/layout', $data);
 			} else {
 				$data['tagline'] = "Page not found";
 				$this->load->view('dashboard/partials/header', $data);
