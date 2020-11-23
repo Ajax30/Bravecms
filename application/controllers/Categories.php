@@ -30,9 +30,9 @@ class Categories extends CI_Controller {
 		$data['category_name'] = $this->Categories_model->get_category($category_id)->name;
 		$data['posts'] = $this->Posts_model->get_posts_by_category($category_id, $limit, $offset);
 
-		$this->load->view('dashboard/partials/header', $data);
-		$this->load->view('categories/posts');
-		$this->load->view('dashboard/partials/footer');
+		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
+		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
+		$this->twig->display('themes/caminar/layout', $data);
 	}
 
 }
