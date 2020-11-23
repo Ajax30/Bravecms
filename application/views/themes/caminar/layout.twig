@@ -13,17 +13,17 @@
 			<div class="logo"><a href="/">{{siteTitle}}</a></div>
 		</header>
 
-		{% if innerTwig is defined %}
-			{{include(innerTwig)}}
-		{% else %}
-			<!-- Main -->
-			<section id="main">
+		<section id="main">
 				<div class="inner">
-					{{posts_view}}
-					{{ include('themes/caminar/templates/posts.twig') }}
+					{% if innerTwig is defined %}
+						{{include(innerTwig)}}
+					{% else %}
+						<!-- Main -->			
+						{{posts_view}}
+						{{ include('themes/caminar/templates/posts.twig') }}				
+					{% endif %}>
 				</div>
-			</section>
-		{% endif %}>
+		</section>
 
 
 
