@@ -114,7 +114,7 @@ class Posts extends CI_Controller {
 			if (empty($errors)) {
 				$this->Posts_model->create_post($post_image, $slug);
 				$this->session->set_flashdata('post_created', 'Your post has been created');
-				redirect('/');
+				redirect('/dashboard');
 			} else {
 				$this->load->view('dashboard/partials/header', $data);
 				$this->load->view('dashboard/create-post');
