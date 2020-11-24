@@ -41,7 +41,6 @@ class Posts extends CI_Controller {
     	//use limit and offset returned by _initPaginator method
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
 
-		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
 		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
 		$this->twig->display('themes/caminar/layout', $data);
@@ -69,7 +68,6 @@ class Posts extends CI_Controller {
 			$data['posts'] = $this->Posts_model->search($expression, $config['limit'], $config['offset']);
 			$data['expression'] = $expression;
 			$data['posts_count'] = $posts_count;
-			$this->twig->addGlobal('siteTitle', 'My Awesome Site');
 			$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 			$this->twig->addGlobal('pagination', $this->pagination->create_links());
 			$this->twig->display('themes/caminar/layout', $data);
@@ -100,7 +98,6 @@ class Posts extends CI_Controller {
 		$data['posts_count'] = $this->Posts_model->posts_by_author_count($authorid); 
 		$data['posts_author'] = $this->Posts_model->posts_author($authorid);
 
-		$this->twig->addGlobal('siteTitle', 'My Awesome Site');
 		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
 		$this->twig->display('themes/caminar/layout', $data);
@@ -117,7 +114,6 @@ class Posts extends CI_Controller {
 
 		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
         $this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
-        $this->twig->addGlobal('siteTitle', 'My Awesome Site');
 
 		if ($data['categories']) {
 			foreach ($data['categories'] as &$category) {

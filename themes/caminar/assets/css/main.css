@@ -2188,13 +2188,13 @@
 	}
 
 	ul.pagination li.active span {
-		color: #5FCEC0;
-		border-color: #5FCEC0
+		color: #54a354;
+		border-color: #54a354
 	}
 
 	ul.pagination li a:hover {
-		color: #5FCEC0;
-		border-color: #5FCEC0
+		color: #54a354;
+		border-color: #54a354
 	}
 
 	/* Form */
