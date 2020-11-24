@@ -40,11 +40,13 @@
 					<li><a href="mailto:{{company_email}}" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
 				</ul>
 
-				<ul class="icons">
-					<li>
-						<a href="./pages/page/{{page.id}}">{{page.title}}</a>
-					</li>
-				</ul>
+				{% if pages %}
+					<ul class="icons">
+						{% for page in pages %}
+						<li><a href="{{base_url}}/pages/page/{{page.id}}">{{page.title}}</a></li>
+						{% endfor %}
+					</ul>
+				{% endif %}
 			</div>
 			<div class="copyright">
 				&copy; {{companyName}}. All rights reserved. Design by <a href="https://templated.co" target="_blank">TEMPLATED</a>
