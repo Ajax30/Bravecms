@@ -1,8 +1,8 @@
-<section class="wrapper style1">
+<div class="wrapper style1">
 	{% for post in posts %}
 		{% if loop.first %}
 			<div class="image fit flush">
-				<a href="{{post.slug}}">
+				<a href="{{base_url}}{{post.slug}}">
 					<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
 				</a>
 			</div>
@@ -12,9 +12,9 @@
 			</header>
 			<div class="content">{{post.content|raw}}</div>
 		{% else %}
-			<div class="spotlight {% if (loop.index is even) %}alt{% else %}{% endif %}">
+			<div class="spotlight {% if (loop.index is even) %}alt{% endif %}">
 				<div class="image flush">
-					<a href="{{post.slug}}">
+					<a href="{{base_url}}{{post.slug}}">
 						<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" alt="{{post.title}}" />
 					</a>
 				</div>
@@ -28,7 +28,7 @@
 			</div>
 		{% endif %}
 	{% endfor %}
-</section>
+</div>
 
 <div class="pagination-container">{{ pagination|raw }}</div>
 
