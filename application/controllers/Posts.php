@@ -30,7 +30,7 @@ class Posts extends CI_Controller {
 
 	public function index() {
 
-    	//call initialization method
+    //call initialization method
 		$config = $this->_initPagination("/", $this->Posts_model->get_num_rows());
 
 		$data = $this->Static_model->get_static_data();
@@ -113,7 +113,7 @@ class Posts extends CI_Controller {
 		$data['author_image'] = isset($data['post']->avatar) && $data['post']->avatar !== '' ? $data['post']->avatar : 'default-avatar.png';
 
 		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
-        $this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
+    $this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 
 		if ($data['categories']) {
 			foreach ($data['categories'] as &$category) {

@@ -22,13 +22,10 @@
 				{% elseif notFound is defined  %}
 					{{include(notFound)}}
 				{% else %}
-					{{posts_view}}
 					{{ include('themes/caminar/templates/posts.twig') }}				
-				{% endif %}>
+				{% endif %}
 			</div>
 		</section>
-
-
 
 		<!-- Footer -->
 		<footer id="footer">
@@ -43,7 +40,7 @@
 				{% if pages %}
 					<ul class="icons">
 						{% for page in pages %}
-						<li><a href="{{base_url}}/pages/page/{{page.id}}">{{page.title}}</a></li>
+							<li><a href="{{base_url}}/pages/page/{{page.id}}">{{page.title}}</a></li>
 						{% endfor %}
 					</ul>
 				{% endif %}
@@ -52,13 +49,5 @@
 				&copy; {{company_name}}. All rights reserved. Design by <a href="https://templated.co" target="_blank">TEMPLATED</a>
 			</div>
 		</footer>
-
-		<!-- Scripts -->
-		<!--
-		<script src="themes/caminar/assets/js/jquery.min.js"></script>
-		<script src="themes/caminar/assets/js/skel.min.js"></script> 
-		<script src="themes/caminar/assets/js/main.js"></script>
-		-->
-
 	</body>
 </html>
