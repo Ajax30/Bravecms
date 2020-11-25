@@ -810,55 +810,6 @@ form a:not(.btn, .icon), {
   }
 }
 
-@media print {
-
-  @page {
-    margin: 2cm;
-  }
-
-  body * {
-    color: #000 !important;
-  }
-
-  /* Hide these elements */
-  .right-half,
-  .comments,
-  .comment-form-wrapper,
-  .fb-share-button  {
-    display: none  !important;
-  }
-
-  /* No margin and padding */
-  #post_content,
-  .post-title,
-  .left-half {
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .post-title,
-  .left-half {
-    text-align: left  !important;
-  }
-
-  /* No border */
-  #post_content,
-  .post-meta {
-    border: none !important; 
-  }
-
-  p {
-    line-height: 1.6 !important; 
-    font-size: 14pt !important; 
-    widows: 2;
-    orphans: 1;
-  }
-
-  .post-content a:after {
-    content: "( "attr(href)" )";
-  }
-}
-
 /* Cookies */
 
 .cc-revoke,
