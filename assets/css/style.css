@@ -7,21 +7,6 @@ body {
   height: 100%;
 }
 
-/* Typo */
-.category-name,
-.results-found {
-  font-size: 2.5rem !important;
-  padding: 0 15px;
-  margin-bottom: 0;
-}
-
-@media (max-width: 575px) {
-  .category-name,
-  .results-found {
-    font-size: 2rem !important;
-  }
-}
-
 /* Helpers & Overwrites */
 
 .bg-dark {
@@ -52,26 +37,6 @@ body {
 
 .w-20 {
   width: 20% !important;
-}
-
-.quote-inline {
-  display: inline-block;
-  position: relative;
-}
-
-.quote-inline:before,
-.quote-inline:after {
-  content: '\201C';
-}
-
-.quote-inline:after {
-  content: '\201D';
-}
-
-#no_posts {
-  padding: 0 15px;
-  margin-top: 15px;
-  font-size: 1.33rem;
 }
 
 #flash_messages .alert {
