@@ -3,8 +3,9 @@
 
 	<div id="comment_add_msg" class="alert alert-hidden alert-success mb-4"></div>
 
-	<form id="commentForm" action="{{base_url}}comments/create/{{post.id}}" method="post">
+	<form id="commentForm" class="comment-form ajax-form" action="{{base_url}}comments/create/{{post.id}}" method="post" novalidate>
 		<input type="hidden" name="postid" value="{{post.id}}">
+		<input type="hidden" name="slug" value="{{post.slug}}">
 		<div class="row uniform">
 			<div class="form-controll 6u 12u$(xsmall)">
 				<input type="text" name="name" id="name" placeholder="Name" data-rule-required="true" />
