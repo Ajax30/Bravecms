@@ -3,7 +3,10 @@
 		<h2>{{post.title}}</h2>
 
 		<p class="meta clearfix">
-			<span class="pull-left">By <a href="/posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a></span>
+			<span class="pull-left author-info">
+				<img src="{{base_url}}assets/img/authors/{{author_image}}" alt="{{post.first_name}} {{post.last_name}}" class="image-circle {{ post.avatar ? '' : 'default-avatar' }}">
+				<a href="/posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a>
+			</span>
 
 			<span class="pull-right">Published on {{post.created_at | date("M d, Y")}} in <a href="categories/posts/{{post.cat_id}}" title="All posts in {{post.category_name}}">{{post.category_name}}</a></span>
 		</p>

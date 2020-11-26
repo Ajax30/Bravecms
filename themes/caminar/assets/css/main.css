@@ -69,15 +69,6 @@ body {
   clear: both;
 }
 
-.fadeout {
-  -webkit-animation: fadeOut 1s;
-  animation: fadeOut 1s;
-  animation-fill-mode: forwards;
-  border: none;
-  overflow: hidden;
-}
-
-
 /* Alignment classes */
 .text-left {
   text-align: left;
@@ -2351,6 +2342,29 @@ textarea.error {
   display: none;
 }
 
+/* Single post */
+
+.author-info {
+  display: flex;
+  line-height: 1;
+  align-items: center;
+}
+
+.author-info a {
+  padding-left: 5px;
+}
+
+.author-info img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%! important;
+}
+
+.author-info .default-avatar {
+  background: rgba(144, 144, 144, 0.15);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
 
 /* Image */
 
@@ -2408,7 +2422,6 @@ textarea.error {
 .image.main img {
   width: 100%;
 }
-
 
 /* List */
 
