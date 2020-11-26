@@ -1,34 +1,35 @@
-/*
-	Caminar by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
-*/
-
 (function($) {
 
-	skel.breakpoints({
-		xlarge: '(max-width: 1680px)',
-		large: '(max-width: 1280px)',
-		medium: '(max-width: 980px)',
-		small: '(max-width: 736px)',
-		xsmall: '(max-width: 480px)'
-	});
+	// Add comments via AJAX
+  $("#commentForm").validate({
+    rules: {
+      email: {
+        email: true
+      }
+    },
 
-	$(function() {
-
-		var	$window 	= $(window),
-			$body 		= $('body'),
-			$header 	= $('#header');
-
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
-
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
-			});
-
-	});
+    submitHandler: function(form) {
+      var form = $("#commentForm"),
+      $fields = form.find('input[type="text"],input[type="email"],textarea'),
+      url = form.attr('action'),
+      data = form.serialize();
+      $.ajax({
+        type: "POST",
+        url: url,
+        data: data,
+        success: function() {
+          console.log(url);
+          $('#comment_add_msg').text("Your comment will be published after approval")
+          .slideDown(250).delay(2500).slideUp(250);
+          $fields.val('');
+        },
+        error: function() {
+          $('#comment_add_msg').removeClass('alert-success').addClass('alert-danger')
+          .text("Sorry, we could not add your comment")
+          .slideDown(250).delay(2500).slideUp(250);
+        }
+      });
+    }
+  });
 
 })(jQuery);

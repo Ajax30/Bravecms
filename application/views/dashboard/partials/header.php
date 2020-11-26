@@ -36,16 +36,6 @@
 			<div class="navbar-nav navbar-expand-md">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto px-2 pl-md-1 pr-md-2 text-nowrap">
-						<li class="nav-item dropdown my-1">
-							<a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<i class="fa fa-folder-open" aria-hidden="true"></i> Categories
-							</a>
-							<div class="dropdown-menu">
-								<?php foreach ($categories as $category): ?>
-									<a class="dropdown-item text-secondary" href="<?php echo base_url('/categories/posts/' . $category->id); ?>"><?php echo $category->name; ?></a>
-								<?php endforeach; ?>
-							</div>
-						</li>
 						<?php if($this->session->userdata('is_logged_in')) : ?>
 							<li class="nav-item dropdown my-1">
 								<a class="nav-link dropdown-toggle py-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

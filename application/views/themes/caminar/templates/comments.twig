@@ -1,0 +1,37 @@
+<div class="comments-form">
+	<h3>Leave a comment</h3>
+
+	<div id="comment_add_msg" class="alert alert-hidden alert-success mb-4"></div>
+
+	<form id="commentForm" action="{{base_url}}comments/create/{{post.id}}" method="post">
+		<input type="hidden" name="postid" value="{{post.id}}">
+		<div class="row uniform">
+			<div class="form-controll 6u 12u$(xsmall)">
+				<input type="text" name="name" id="name" placeholder="Name" data-rule-required="true" />
+			</div>
+			<div class="form-controll 6u$ 12u$(xsmall)">
+				<input type="email" name="email" id="email" placeholder="Email" data-rule-required="true" />
+			</div>
+			<div class="form-controll 12u$">
+				<textarea name="comment" rows="6" id="message" data-rule-required="true"></textarea>
+			</div>
+			<div class="12u$">
+				<input type="submit" value="Add comment" class="button special fit" />
+			</div>
+		</div>
+	</form>
+</div>
+
+<div class="comments">
+	<h3>Comments</h3>
+	{% if comments %}
+		{% for comment in comments %}
+		<div class="comment">
+			<h4>On {{comment.created_at  | date("M d, Y")}}, {{comment.name}} wrote:</h4>
+			<p>{{comment.comment}}</p>
+		</div>
+		{% endfor %}
+		{% else %}
+			<p>There are no comments yet</p>
+		{% endif %}
+</div>

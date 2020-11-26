@@ -105,6 +105,7 @@ class Posts extends CI_Controller {
 
 	public function post($slug) {
 		$data = $this->Static_model->get_static_data();
+		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories();
 		$data['authors'] = $this->Usermodel->getAuthors();
@@ -124,18 +125,15 @@ class Posts extends CI_Controller {
 		if (!empty($data['post'])) {
 			// Overwrite the default tagline with the post title
 			$data['tagline'] = $data['post']->title;
-
 			// Get post comments
 			$post_id = $data['post']->id;
 			$data['comments'] = $this->Comments_model->get_comments($post_id);
 			$this->twig->addGlobal('singlePost','themes/caminar/templates/singlepost.twig');
-			$this->twig->display('themes/caminar/layout', $data);
 		} else {
 				$data['tagline'] = "Page not found";
 				$this->twig->addGlobal('notFound','themes/caminar/templates/404.twig');
-				$this->twig->display('themes/caminar/layout', $data);
-
 		}
+		$this->twig->display('themes/caminar/layout', $data);
 	}
 
 }
