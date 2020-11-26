@@ -4,7 +4,7 @@
 
 		<p class="meta clearfix">
 			<span class="pull-left author-info">
-				<img src="{{base_url}}assets/img/authors/{{author_image}}" alt="{{post.first_name}} {{post.last_name}}" class="image-circle {{ post.avatar ? '' : 'default-avatar' }}">
+				<img src="{{base_url}}assets/img/authors/{{author_image}}" alt="{{post.first_name}} {{post.last_name}}" class="{{ post.avatar ? '' : 'default-avatar' }}">
 				<a href="/posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a>
 			</span>
 
