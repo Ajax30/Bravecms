@@ -1,5 +1,5 @@
 <div class="col-sm-4 col-md-3 px-0" id="dashboard_sidebar">
-  <div class="card-list-group card bg-light mb-3">
+  <div class="card card-list-group bg-light mb-3">
     <h6 class="card-header text-dark">Dashboard</h6>
     <div class="card-body p-0 bg-white">
       <ul class="list-group">

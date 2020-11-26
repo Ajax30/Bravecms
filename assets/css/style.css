@@ -60,6 +60,10 @@ table a {
   display: inline-block; 
 }
 
+.card-list-group {
+  overflow: hidden;
+}
+
 .card-list-group .list-group-item {
   border-radius: 0;
   border-right: none;
