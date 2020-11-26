@@ -1,6 +1,6 @@
 <div class="container fluid-fixed">
   <div class="content-wrapper">
-    <main class="dashboard-content wide-content">
+    <main class="dashboard-content content">
       <div class="row">
         <?php $this->load->view("dashboard/partials/sidebar-single");?>
         <div class="col-sm-8 col-md-9" id="dashboard">

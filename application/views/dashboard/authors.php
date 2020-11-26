@@ -1,6 +1,6 @@
 <div class="container fluid-fixed">
   <div class="content-wrapper">
-    <main class="dashboard-content wide-content">
+    <main class="dashboard-content content">
       <div class="row">
         <div class="card bg-light w-100">
           <h6 class="card-header text-dark">Manage authors</h6>
