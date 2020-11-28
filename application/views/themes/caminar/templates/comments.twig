@@ -3,7 +3,7 @@
 
 	<div id="comment_add_msg" class="alert alert-hidden alert-success mb-4"></div>
 
-	<form id="commentForm" class="comment-form ajax-form" action="{{base_url}}comments/create/{{post.id}}" method="post" novalidate>
+	<form id="commentForm" action="{{base_url}}comments/create/{{post.id}}" method="post" novalidate>
 		<input type="hidden" name="postid" value="{{post.id}}">
 		<input type="hidden" name="slug" value="{{post.slug}}">
 		<div class="row uniform">
@@ -14,7 +14,7 @@
 				<input type="email" name="email" id="email" placeholder="Email" data-rule-required="true" />
 			</div>
 			<div class="form-controll 12u$">
-				<textarea name="comment" rows="6" id="message" data-rule-required="true"></textarea>
+				<textarea name="message" rows="6" id="message" data-rule-required="true"></textarea>
 			</div>
 			<div class="12u$">
 				<input type="submit" value="Add comment" class="button special fit" />

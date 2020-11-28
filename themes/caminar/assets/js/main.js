@@ -18,7 +18,6 @@
         url: url,
         data: data,
         success: function() {
-          console.log(url);
           $('#comment_add_msg').text("Your comment will be published after approval")
           .slideDown(250).delay(2500).slideUp(250);
           $fields.val('');
