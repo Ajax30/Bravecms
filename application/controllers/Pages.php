@@ -10,6 +10,7 @@ class Pages extends CI_Controller {
 
 	public function page($page_id) {
 		$data = $this->Static_model->get_static_data();
+		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories();
 		$data['authors'] = $this->Usermodel->getAuthors();
@@ -26,9 +27,8 @@ class Pages extends CI_Controller {
 				// Overwrite the default tagline with the page title
 				$data['tagline'] = $data['page']->title;
 				$this->load->view('dashboard/partials/header', $data);
-				$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
-				$this->twig->addGlobal('pageTemplate','themes/caminar/templates/page.twig');
-				$this->twig->display('themes/caminar/layout', $data);
+				$this->twig->addGlobal('pageTemplate',"themes/{$data['theme_directory']}/templates/page.twig");
+				$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 			} else {
 				$data['tagline'] = "Page not found";
 				$this->load->view('dashboard/partials/header', $data);

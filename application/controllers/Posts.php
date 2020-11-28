@@ -40,10 +40,8 @@ class Posts extends CI_Controller {
 
     	//use limit and offset returned by _initPaginator method
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
-
-		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
-		$this->twig->display('themes/caminar/layout', $data);
+		$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 	}
 
 	public function search() {
@@ -67,9 +65,8 @@ class Posts extends CI_Controller {
 			$data['posts'] = $this->Posts_model->search($expression, $config['limit'], $config['offset']);
 			$data['expression'] = $expression;
 			$data['posts_count'] = $posts_count;
-			$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 			$this->twig->addGlobal('pagination', $this->pagination->create_links());
-			$this->twig->display('themes/caminar/layout', $data);
+			$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 		}
 	} 
 
@@ -97,9 +94,8 @@ class Posts extends CI_Controller {
 		$data['posts_count'] = $this->Posts_model->posts_by_author_count($authorid); 
 		$data['posts_author'] = $this->Posts_model->posts_author($authorid);
 
-		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
-		$this->twig->display('themes/caminar/layout', $data);
+		$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 	}
 
 	public function post($slug) {
@@ -111,9 +107,6 @@ class Posts extends CI_Controller {
 		$data['posts'] = $this->Posts_model->sidebar_posts($limit=5, $offset=0);
 		$data['post'] = $this->Posts_model->get_post($slug);
 		$data['author_image'] = isset($data['post']->avatar) && $data['post']->avatar !== '' ? $data['post']->avatar : 'default-avatar.png';
-
-		//CSS, JS and other resources add to twig here, because PHP and Codeigniter functions are not available from Twig templates
-    $this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
 
 		if ($data['categories']) {
 			foreach ($data['categories'] as &$category) {
@@ -127,12 +120,12 @@ class Posts extends CI_Controller {
 			// Get post comments
 			$post_id = $data['post']->id;
 			$data['comments'] = $this->Comments_model->get_comments($post_id);
-			$this->twig->addGlobal('singlePost','themes/caminar/templates/singlepost.twig');
+			$this->twig->addGlobal('singlePost', "themes/{$data['theme_directory']}/templates/singlepost.twig");
 		} else {
 				$data['tagline'] = "Page not found";
-				$this->twig->addGlobal('notFound','themes/caminar/templates/404.twig');
+				$this->twig->addGlobal('notFound', "themes/{$data['theme_directory']}/templates/404.twig");
 		}
-		$this->twig->display('themes/caminar/layout', $data);
+		$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 	}
 
 }

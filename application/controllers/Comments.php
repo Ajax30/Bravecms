@@ -25,11 +25,9 @@ class Comments extends CI_Controller {
 		$this->form_validation->set_rules('message', 'Comment', 'required');
 		$this->form_validation->set_error_delimiters('<p class="error-message">', '</p>');
 
-		$this->twig->addGlobal('maincss', base_url('themes/caminar/assets/css/main.css'));
-
 		if($this->form_validation->run() === FALSE) {
-			$this->twig->addGlobal('singlePost','themes/caminar/templates/singlepost.twig');
-			$this->twig->display('themes/caminar/layout', $data);
+			$this->twig->addGlobal('singlePost',"themes/{$data['theme_directory']}/templates/singlepost.twig");
+			$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 		} else {
 			$this->Comments_model->create_comment($post_id);
 			redirect('/' . $post_slug);

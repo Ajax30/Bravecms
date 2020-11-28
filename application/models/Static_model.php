@@ -11,6 +11,8 @@ class Static_model extends CI_Model {
 		$data['twitter'] = "https://twitter.com/";
 		$data['facebook'] = "https://facebook.com/";
 		$data['instagram'] = "https://instagram.com/";
+
+		$data['theme_directory'] = "caminar";
 		$data['is_frontend'] = false;
 		$data['is_ckeditor'] = false;
 		$data['is_cookieconsent'] = true;
