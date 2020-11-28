@@ -25,13 +25,13 @@
 				<span class="navbar-toggler-icon"></span>
 			</button>
 			<form method="get" action="<?php echo base_url('posts/search') ?>" id="search_form" class="w-100 py-1 px-2 px-md-3 px-lg-5" accept-charset="utf-8">
-			<div id="group-search" class="input-group <?php if(form_error('search')) echo 'has-error';?>">
-				<input class="form-control form-control-dark" type="text" name="search" placeholder="Search posts..." aria-label="Search">
-				<?php if(form_error('search')) echo form_error('search'); ?> 
-				<div class="input-group-append">
-					<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+				<div id="group-search" class="input-group <?php if(form_error('search')) echo 'has-error';?>">
+					<input class="form-control form-control-dark" type="text" name="search" placeholder="Search posts..." aria-label="Search">
+					<?php if(form_error('search')) echo form_error('search'); ?> 
+					<div class="input-group-append">
+						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+					</div>
 				</div>
-			</div>
 			</form>
 			<div class="navbar-nav navbar-expand-md">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
