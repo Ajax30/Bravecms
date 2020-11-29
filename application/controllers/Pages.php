@@ -26,15 +26,12 @@ class Pages extends CI_Controller {
 		if (!empty($data['page'])) {
 				// Overwrite the default tagline with the page title
 				$data['tagline'] = $data['page']->title;
-				$this->load->view('dashboard/partials/header', $data);
 				$this->twig->addGlobal('pageTemplate',"themes/{$data['theme_directory']}/templates/page.twig");
-				$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 			} else {
 				$data['tagline'] = "Page not found";
-				$this->load->view('dashboard/partials/header', $data);
-				$this->load->view('404');
+				$this->twig->addGlobal('notFound', "themes/{$data['theme_directory']}/templates/404.twig");
 			}
-			$this->load->view('dashboard/partials/footer');
+			$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 	}
 
 }
