@@ -1467,7 +1467,7 @@ html {
 
 body {
   background-color: #fff;
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.6);
 }
 
 body,
@@ -1975,7 +1975,7 @@ ul.pagination li span {
   width: 3em;
   text-align: center;
   border-radius: 4px;
-  color: #444;
+  color: #464646;
   background: #fff;
   border: solid 2px #e9e9e9;
 }
@@ -2460,23 +2460,32 @@ ul.alt li:first-child {
   padding-top: 0;
 }
 
-ul.icons {
-  cursor: default;
+ul.icons,
+ul.footer-links  {
   list-style: none;
   padding-left: 0;
+  margin-bottom: 15px;
 }
 
-ul.icons li {
+ul.icons li,
+ul.footer-links li {
   display: inline-block;
   padding: 0 1rem 0 0;
 }
 
-ul.icons li:last-child {
+ul.icons li:last-child,
+ul.footer-links li:last-child {
   padding-right: 0;
 }
 
-ul.icons li .icon:before {
+ul.icons li .icon:before,
+ul.footer-links .icon:before {
   font-size: 2rem;
+}
+
+ul.footer-links li a {
+  text-decoration: none;
+  font-weight: 500;
 }
 
 ul.actions {
@@ -2626,6 +2635,9 @@ header p {
   color: #bbb;
 }
 
+.post-content {
+  color: #464646;
+}
 
 /*Spotlight */
 
@@ -3143,7 +3155,7 @@ body:after {
   color: #bbb;
   font-size: 0.9rem;
   margin: 0 0 2rem 0;
-  padding: 0 1rem;
+  padding: 5px 1rem 0 1rem;
   text-align: center;
 }
 
