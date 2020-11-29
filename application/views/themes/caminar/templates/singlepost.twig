@@ -19,7 +19,7 @@
 			{{post.content | raw}}
 		</div>
 
-		{{ include('themes/caminar/templates/comments.twig') }}
+		{{ include('themes/' ~ theme_directory ~ '/templates/comments.twig') }}
 		
 	</div>
 </div>

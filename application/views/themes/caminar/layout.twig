@@ -22,7 +22,7 @@
 				{% elseif notFound is defined  %}
 					{{include(notFound)}}
 				{% else %}
-					{{ include('themes/caminar/templates/posts.twig') }}				
+					{{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}				
 				{% endif %}
 			</div>
 		</section>
