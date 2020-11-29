@@ -111,7 +111,24 @@ img::-moz-selection {
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
+  white-space: nowrap;
   text-transform: uppercase;
+}
+
+#search_form {
+  opacity: .85;
+}
+
+#mainNav.is-visible form .btn {
+  border: 1px solid #ced4da;
+  border-left: 0;
+}
+
+@media only screen and (max-width: 992px) {
+  #mainNav .btn {
+    border: 1px solid #ced4da;
+    border-left: 0;
+  }
 }
 
 @media only screen and (min-width: 992px) {
@@ -133,9 +150,7 @@ img::-moz-selection {
   #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
     color: rgba(255, 255, 255, 0.8);
   }
-}
 
-@media only screen and (min-width: 992px) {
   #mainNav {
     transition: background-color 0.2s;
     /* Force Hardware Acceleration in WebKit */
@@ -399,7 +414,6 @@ footer .copyright {
   padding: 15px 25px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  border-radius: 0;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
@@ -418,3 +432,8 @@ footer .copyright {
   font-size: 16px;
   padding: 25px 35px;
 }
+
+.btn-sm {
+  padding: .375rem 1rem;
+}
+
