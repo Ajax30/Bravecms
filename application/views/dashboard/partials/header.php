@@ -18,21 +18,21 @@
 <body>
 	<div class="site-wrapper">
 		<nav class="navbar sticky-top navbar-dark bg-dark flex-wrap2 flex-md-nowrap p-0 py-md-1">
-			<a class="navbar-brand col-auto mr-0 px-2 pl-md-1" href="<?php echo base_url(); ?>">
-				<?php echo $site_title ?>
-			</a>
+			<a class="navbar-brand col-auto mr-0 px-2 pl-md-1" href="<?php echo base_url('/dashboard'); ?>">Dashboard</a>
 			<button class="navbar-toggler d-md-none mt-1 mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<form method="get" action="<?php echo base_url('posts/search') ?>" id="search_form" class="w-100 py-1 px-2 px-md-3 px-lg-5" accept-charset="utf-8">
-				<div id="group-search" class="input-group <?php if(form_error('search')) echo 'has-error';?>">
-					<input class="form-control form-control-dark" type="text" name="search" placeholder="Search posts..." aria-label="Search">
-					<?php if(form_error('search')) echo form_error('search'); ?> 
-					<div class="input-group-append">
-						<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+			<?php if($this->session->userdata('is_logged_in')) : ?>
+				<form method="get" action="<?php echo base_url('dashboard/posts/search') ?>" id="search_form" class="w-100 py-1 px-2 px-md-3 px-lg-5" accept-charset="utf-8">
+					<div id="group-search" class="input-group <?php if(form_error('search')) echo 'has-error';?>">
+						<input class="form-control form-control-dark" type="text" name="search" placeholder="Search posts..." aria-label="Search">
+						<?php if(form_error('search')) echo form_error('search'); ?> 
+						<div class="input-group-append">
+							<button class="btn" type="submit"><i class="fa fa-search"></i></button>
+						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			<?php endif; ?>
 			<div class="navbar-nav navbar-expand-md">
 				<div class="collapse navbar-collapse" id="navbarSupportedContent">
 					<ul class="navbar-nav mr-auto px-2 pl-md-1 pr-md-2 text-nowrap">

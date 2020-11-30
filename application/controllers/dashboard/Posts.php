@@ -49,6 +49,51 @@ class Posts extends CI_Controller {
 		$this->load->view('dashboard/partials/footer');
 	}
 
+	public function search() {
+
+		if (!$this->session->userdata('is_logged_in')) {
+			redirect('login');
+		}
+
+    // Force validation since the form's method is GET
+		$this->form_validation->set_data($this->input->get());
+		$this->form_validation->set_rules('search', 'Search term', 'required|trim|min_length[3]',array('min_length' => 'The Search term must be at least 3 characters long.'));
+		$this->form_validation->set_error_delimiters('<p class = "error search-error">', '</p>
+			');
+ 		// If search fails
+		if ($this->form_validation->run() === FALSE) {
+			return $this->index();
+		} else {
+			$expression = $this->input->get('search');
+			if (!$this->session->userdata('is_logged_in')) {
+				redirect('login');
+			}
+	
+			//load and configure pagination 
+			$this->load->library('pagination');
+			$config['base_url'] = base_url("/dashboard/posts");
+			$config['query_string_segment'] = 'page';
+			$config['total_rows'] =	$this->Posts_model->get_num_rows();
+			$config['per_page'] = 10;
+			
+			if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
+				$_GET[$config['query_string_segment']] = 1;
+			}
+			$limit = $config['per_page'];
+			$offset = ($this->input->get($config['query_string_segment']) - 1) * $limit;
+			$this->pagination->initialize($config);
+	
+			$data = $this->get_data();
+			$data['posts'] = $this->Posts_model->search($expression, $limit, $offset);
+			$data['offset'] = $offset;
+			$data['expression'] = $expression;
+	
+			$this->load->view('dashboard/partials/header', $data);
+			$this->load->view('dashboard/posts');
+			$this->load->view('dashboard/partials/footer');
+		}
+	} 
+
 	public function create() {
 
 		// Only logged in users can create posts
