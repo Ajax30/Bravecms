@@ -48,7 +48,7 @@ class Posts extends CI_Controller {
 	public function search() {
    // Force validation since the form's method is GET
 		$this->form_validation->set_data($this->input->get());
-		$this->form_validation->set_rules('search', 'Search term', 'required|trim|min_length[3]',array('min_length' => 'The Search term must be at least 3 characters long.'));
+		$this->form_validation->set_rules('search', 'search term', 'required|trim|min_length[3]',array('min_length' => 'The search term must be at least 3 characters long.'));
 		$this->form_validation->set_error_delimiters('<p class = "error search-error">', '</p>');
  		// If search fails
 		if ($this->form_validation->run() === FALSE) {
