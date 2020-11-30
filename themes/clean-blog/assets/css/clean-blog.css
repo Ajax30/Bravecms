@@ -138,6 +138,15 @@ img::-moz-selection {
   border-left: 0;
 }
 
+#search_form .error {
+  margin: 0;
+  position: absolute;
+  bottom: 2px;
+  right: 52px;
+  color: #c00;
+  font-size: .75rem;
+}
+
 @media only screen and (max-width: 991px) {
   #mainNav .btn {
     border: 1px solid #ced4da;
@@ -168,6 +177,9 @@ img::-moz-selection {
   #mainNav .navbar-nav > li.nav-item > a {
     padding: 10px 20px;
     color: #fff;
+  }
+  #mainNav .navbar-nav > li.nav-item.dropdown > a {
+    padding-right: 15px;
   }
   #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
     color: rgba(255, 255, 255, 0.8);
