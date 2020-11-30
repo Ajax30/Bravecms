@@ -138,10 +138,18 @@ img::-moz-selection {
   border-left: 0;
 }
 
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 991px) {
   #mainNav .btn {
     border: 1px solid #ced4da;
     border-left: 0;
+  }
+
+  #mainNav .dropdown-menu {
+    border: 0;
+  }
+
+  #mainNav .dropdown-menu a {
+    font-size: 0.85rem;
   }
 }
 
