@@ -17,6 +17,10 @@
 
   <link rel="stylesheet" href="{{base_url}}themes/{{theme_directory}}/vendor/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{base_url}}themes/{{theme_directory}}/assets/css/clean-blog.min.css">
+  {% if is_cookieconsent == true %}
+    <link rel="stylesheet" href="{{base_url}}/assets/css/cookies.css">
+    <script src="{{base_url}}assets/lib/cookieconsent/js/cookieconsent.min.js "></script>
+  {% endif %}
 
 </head>
 
@@ -144,8 +148,37 @@
   <script src="{{base_url}}themes/{{theme_directory}}/vendor/jquery/jquery.min.js"></script>
   <script src="{{base_url}}themes/{{theme_directory}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <!-- Custom scripts for this template -->
-  <script src="{{base_url}}/themes/{{theme_directory}}/assets/js/clean-blog.min.js"></script>
-
+  <script src="{{base_url}}themes/{{theme_directory}}/assets/js/clean-blog.min.js"></script>
+  {% if is_cookieconsent == true %} 
+    <script>
+        window.cookieconsent.initialise({
+        container: document.getElementById("cookieconsent"),
+        palette:{
+        popup: {background: "#0068BB"},
+        button: {background: "#fff"},
+        },
+        revokable: true,
+        onStatusChange: function(status) {
+        console.log(this.hasConsented() ?
+          'enable cookies' : 'disable cookies');
+        },
+        "position": "bottom-left",
+        "theme": "classic",
+        "secure": true,
+        "content": {
+          "header": 'Cookies used on the website!',
+          "message": 'This website uses cookies to improve your experience.',
+          "dismiss": 'Got it!',
+          "allow": 'Allow cookies',
+          "deny": 'Decline',
+          "link": 'Learn more',
+          "close": '&#x274c;',
+          "policy": 'Cookie Policy',
+          "target": '_blank',
+          }
+      });
+    </script>
+  {% endif %}
 </body>
 
 </html>
