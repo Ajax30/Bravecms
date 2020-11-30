@@ -43,6 +43,20 @@ blockquote {
   color: #868e96;
 }
 
+.quote-inline {
+  display: inline-block;
+  position: relative;
+}
+
+.quote-inline:before,
+.quote-inline:after {
+  content: '\201C';
+}
+
+.quote-inline:after {
+  content: '\201D';
+}
+
 .section-heading {
   font-size: 36px;
   font-weight: 700;

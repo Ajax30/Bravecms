@@ -30,7 +30,7 @@
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <form method="get" action="{{base_url}}posts/search" id="search_form" class="w-100 pt-2 pb-1" accept-charset="utf-8">
+      <form method="get" action="{{base_url}}posts/search" id="search_form" class="w-100 pt-2 pb-1 pr-lg-3" accept-charset="utf-8">
 				<div id="group-search" class="input-group <?php if(form_error('search')) echo 'has-error';?>">
 					<input class="form-control" type="text" name="search" placeholder="Search posts..." aria-label="Search">
 					<?php if(form_error('search')) echo form_error('search'); ?> 
@@ -43,6 +43,16 @@
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="{{base_url}}">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Categories</a>
+            {% if categories %}
+              <div class="dropdown-menu overflow-hidden py-0">
+                {% for category in categories %}
+                  <a class="dropdown-item text-secondary" href="{{base_url}}/categories/posts/{{category.id}}">{{category.name}}</a>
+                {% endfor %}
+              </div>
+            {% endif %}
           </li>
           {% if pages %}
             {% for page in pages %}
@@ -68,9 +78,11 @@
               <span class="subheading">{{post.decription}}</span>
             {% elseif pageTemplate is defined %}
               <h1>{{page.title}}</h1>
-            {% elseif notFound is defined  %}
+            {% elseif notFound is defined %}
               <h1>404</h1>
               <span class="subheading">Page not found</span>
+            {% elseif category_name is defined  %}
+              <h2 class="display-4 font-weight-bold">Posts in <span class="quote-inline">{{category_name}}</span></h2>
             {% else %}
               <h1>Clean Blog</h1>
               <span class="subheading">A Blog Theme by Start Bootstrap</span>
