@@ -46,6 +46,9 @@
 									<span class="py-2">Welcome, <?php echo $this->session->userdata('user_first_name'); ?></span>
 								</a>
 									<div class="dropdown-menu">
+									<a class="dropdown-item text-secondary" href="<?php echo base_url() ?>">
+											<i class="fa fa-home mr-2"></i> Home
+										</a>
 										<a class="dropdown-item text-secondary" href="<?php echo base_url('dashboard') ?>">
 											<i class="fa fa-tachometer mr-2"></i> Dashboard
 										</a>
