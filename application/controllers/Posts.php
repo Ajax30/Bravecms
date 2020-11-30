@@ -36,7 +36,8 @@ class Posts extends CI_Controller {
 		$data = $this->Static_model->get_static_data();
 		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
-		$data['categories'] = $this->Categories_model->get_categories();  
+		$data['categories'] = $this->Categories_model->get_categories(); 
+		$data['search_errors'] = validation_errors();
 
     	//use limit and offset returned by _initPaginator method
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
@@ -51,6 +52,7 @@ class Posts extends CI_Controller {
 		$this->form_validation->set_error_delimiters('<p class = "error search-error">', '</p>');
  		// If search fails
 		if ($this->form_validation->run() === FALSE) {
+			$data['search_errors'] = validation_errors();
 			return $this->index();
 		} else {
 			$expression = $this->input->get('search');
