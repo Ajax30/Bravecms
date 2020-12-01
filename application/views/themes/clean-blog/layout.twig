@@ -49,7 +49,7 @@
             {% if categories %}
               <div class="dropdown-menu overflow-hidden py-0">
                 {% for category in categories %}
-                  <a class="dropdown-item text-secondary" href="{{base_url}}/categories/posts/{{category.id}}">{{category.name}}</a>
+                  <a class="dropdown-item text-secondary" href="{{base_url}}categories/posts/{{category.id}}">{{category.name}}</a>
                 {% endfor %}
               </div>
             {% endif %}
