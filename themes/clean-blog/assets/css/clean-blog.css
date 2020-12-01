@@ -126,7 +126,12 @@ img::-moz-selection {
   font-weight: 800;
   letter-spacing: 1px;
   white-space: nowrap;
+  padding: .25rem 1rem;
   text-transform: uppercase;
+}
+
+#mainNav .dropdown-menu a:active {
+  background-color: transparent;
 }
 
 #search_form {
@@ -166,6 +171,11 @@ img::-moz-selection {
   #mainNav {
     border-bottom: 1px solid transparent;
     background: transparent;
+    transition: background-color 0.2s;
+    /* Force Hardware Acceleration in WebKit */
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
   }
   #mainNav .navbar-brand {
     padding: 10px 20px;
@@ -183,14 +193,6 @@ img::-moz-selection {
   }
   #mainNav .navbar-nav > li.nav-item > a:focus, #mainNav .navbar-nav > li.nav-item > a:hover {
     color: rgba(255, 255, 255, 0.8);
-  }
-
-  #mainNav {
-    transition: background-color 0.2s;
-    /* Force Hardware Acceleration in WebKit */
-    transform: translate3d(0, 0, 0);
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
   }
   #mainNav.is-fixed {
     /* when the user scrolls down, we hide the header right above the viewport */
