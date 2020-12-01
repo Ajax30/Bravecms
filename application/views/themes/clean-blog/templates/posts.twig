@@ -2,12 +2,25 @@
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-				{% if posts_count is defined %}
+			
+				{# Search Results #}
+				{% if expression is defined and posts_count is defined %}
 					<p class="mt-0 text-muted {{ posts_count == 0 ? 'text-center' : '' }}">
 						{% if posts_count > 0 %}		
 							We found {{posts_count}} {{ posts_count == 1 ? "post" : "posts" }} containing <span class="quote-inline">{{expression}}</span>:
 						{% else %}
 							<span class="d-block">No posts containing <span class="quote-inline">{{expression}}</span> ware found.</span>
+							<span class="d-block">See the most <a href="{{base_url}}">recent posts</a>.</span>
+						{% endif %}
+					</p>
+
+				{# Posts my author #}
+				{% elseif posts_author is defined and posts_count is defined %}
+					<p class="mt-0 text-muted {{ posts_count == 0 ? 'text-center' : '' }}">
+						{% if posts_count > 0 %}		
+							We found {{posts_count}} {{ posts_count == 1 ? "post" : "posts" }} by {{posts_author.first_name}} {{posts_author.last_name}}:
+						{% else %}
+							<span class="d-block">No posts by {{posts_author.first_name}} {{posts_author.last_name}} ware found.</span>
 							<span class="d-block">See the most <a href="{{base_url}}">recent posts</a>.</span>
 						{% endif %}
 					</p>

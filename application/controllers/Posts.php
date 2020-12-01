@@ -95,6 +95,7 @@ class Posts extends CI_Controller {
 		$data['posts'] = $this->Posts_model->get_posts_by_author($authorid, $limit, $offset); 
 		$data['posts_count'] = $this->Posts_model->posts_by_author_count($authorid); 
 		$data['posts_author'] = $this->Posts_model->posts_author($authorid);
+		$data['tagline'] = "Posts by " . $data['posts_author']->first_name . " " . $data['posts_author']->last_name;
 
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
 		$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
