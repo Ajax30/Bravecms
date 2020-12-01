@@ -29,6 +29,7 @@ class Categories extends CI_Controller {
 		$data['pages'] = $this->Pages_model->get_pages();
 		$data['categories'] = $this->Categories_model->get_categories();
 		$data['category_name'] = $this->Categories_model->get_category($category_id)->name;
+		$data['tagline'] = $data['category_name'];
 		$data['posts'] = $this->Posts_model->get_posts_by_category($category_id, $limit, $offset);
 
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
