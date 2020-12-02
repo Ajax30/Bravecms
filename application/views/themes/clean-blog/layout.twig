@@ -5,11 +5,10 @@
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description" content="{{tagline}}">
   <meta name="author" content="">
 
   <title>{{site_title}} | {{tagline}}</title>
-  <!-- Custom fonts for this template -->
   <link href="{{base_url}}themes/{{theme_directory}}/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
@@ -78,14 +77,16 @@
               <span class="subheading">{{post.decription}}</span>
             {% elseif pageTemplate is defined %}
               <h1>{{page.title}}</h1>
+            {% elseif contactForm is defined  %}
+              <h1>{{tagline}}</h1>
             {% elseif notFound is defined %}
               <h1>404</h1>
-              <span class="subheading">Page not found</span>
+              <span class="subheading">{{tagline}}</span>
             {% elseif category_name is defined  %}
               <h2 class="display-4 font-weight-bold">Posts in <span class="quote-inline">{{category_name}}</span></h2>
             {% else %}
-              <h1>Clean Blog</h1>
-              <span class="subheading">A Blog Theme by Start Bootstrap</span>
+              <h1>{{site_title}}</h1>
+              <span class="subheading">{{tagline}}</span>
             {% endif %}
           </div>
         </div>
@@ -97,6 +98,8 @@
     {{include(singlePost)}}
   {% elseif pageTemplate is defined  %}
     {{include(pageTemplate)}}
+  {% elseif contactForm is defined  %}
+    {{include(contactForm)}}
   {% elseif notFound is defined  %}
     {{include(notFound)}}
   {% else %}
