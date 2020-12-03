@@ -2250,13 +2250,13 @@ input[type="radio"]:focus+label:before {
 }
 
 
-/* comment form */
+/* forms */
 
 #commentForm {
   margin: 0 0 1.5rem 0;
 }
 
-#commentForm .form-controll {
+.form-controll {
   position: relative;
 }
 
@@ -2267,12 +2267,14 @@ textarea.error {
   box-shadow: none;
 }
 
-.form-controll label.error {
+.form-controll label.error,
+.form-controll .form-error {
   position: absolute;
   bottom: 2px;
   right: 5px;
   font-size: 0.75rem;
   color: #c00;
+  font-weight: 500;
 }
 
 
@@ -2421,6 +2423,10 @@ textarea.error {
 
 .image.main img {
   width: 100%;
+}
+
+.image.contact {
+  padding-bottom: 3.5rem;
 }
 
 /* List */

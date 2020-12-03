@@ -1,0 +1,63 @@
+<div class="wrapper style1">
+	<div class="content">
+	
+		<div class="contact image fit flush">
+			<img src="{{base_url}}themes/caminar/assets/images/woman-with-laptop.jpg" alt="Contact">
+		</div>
+
+			<h2>Contact us</h2>
+
+	{% if message_success == true %}
+		<div class="alert alert-success alert-dismissible text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			Your message was sent. We will reply as soon as possible.
+		</div>
+	{% endif %}
+
+	{% if message_fail == true %}
+		<div class="alert alert-danger alert-dismissible text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			Something went wrong while sending your message.
+		</div>
+	{% endif %}
+
+	<div id="msgContainer" class="alert alert-hidden alert-success mb-4"></div>
+
+		<form name="contactForm"
+			id="ajaxForm"
+				action="{{base_url}}contact"
+					method="post"
+						data-successmsg="Your message was delivered" 
+							data-failmsg="Sorry, we could deliver your message"
+								novalidate>
+
+								<div class="row uniform">	
+									<div class="form-controll 12u$">
+										<input type="text" class="form-control px-1 {{ form_error('name') ? 'error' }}" placeholder="Name" name="name" id="name" value="{{set_value('name' )}}" data-rule-required="true">
+										{{ form_error('name') ? form_error('name') }}
+									</div>
+
+									<div class="form-controll 12u$">
+										<input type="email" class="form-control px-1 {{ form_error('email') ? 'error' }}" placeholder="Email" name="email" id="email" value="{{set_value('email' )}}" data-rule-required="true">
+										{{ form_error('email') ? form_error('email') }}
+									</div>
+								</div>
+
+								<div class="row uniform">	
+									<div class="form-controll 12u$">
+										<input type="text" class="form-control px-1 {{ form_error('subject') ? 'error' }}" placeholder="Subject" name="subject" id="subject" value="{{set_value('subject' )}}" data-rule-required="true">
+										{{ form_error('subject') ? form_error('subject') }}
+									</div>
+
+									<div class="form-controll 12u$">
+										<textarea rows="5" class="form-control px-1 {{ form_error('message') ? 'error' }}" placeholder="Message" name="message" id="message" data-rule-required="true">{{set_value('message')}}</textarea>
+										{{ form_error('message') ? form_error('message') }}
+									</div>
+
+									<div class="12u$">
+										<button type="submit" class="button special fit" id="sendMessageButton">Send</button>
+									</div>
+								</div>
+		</form>
+	</div>
+</div>

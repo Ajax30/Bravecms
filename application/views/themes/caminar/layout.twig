@@ -23,6 +23,8 @@
 					{{include(singlePost)}}
 				{% elseif pageTemplate is defined  %}
 					{{include(pageTemplate)}}
+				{% elseif contactForm is defined  %}
+    			{{include(contactForm)}}
 				{% elseif notFound is defined  %}
 					{{include(notFound)}}
 				{% else %}
@@ -46,6 +48,7 @@
 						{% for page in pages %}
 							<li><a href="{{base_url}}/pages/page/{{page.id}}">{{page.title}}</a></li>
 						{% endfor %}
+						<li><a class="nav-link" href="{{base_url}}contact">Contact</a></li>
 					</ul>
 				{% endif %}
 			</div>
@@ -56,7 +59,7 @@
 
 		<script src="{{base_url}}/themes/{{theme_directory}}/assets/js/jquery.min.js"></script>
 		<script src="{{base_url}}/themes/{{theme_directory}}/assets/js/jquery.validate.min.js"></script>
-		<script src="{{base_url}}assets/lib/cookieconsent/js/comments.js"></script>
+		<script src="{{base_url}}assets/js/ajaxform.js"></script>
 		{% if is_cookieconsent == true %} 
     <script>
         window.cookieconsent.initialise({

@@ -25,7 +25,7 @@ class Contact extends CI_Controller {
 		$this->form_validation->set_rules('email', 'Email', 'required|trim|valid_email');
 		$this->form_validation->set_rules('subject', 'Subject', 'required');
 		$this->form_validation->set_rules('message', 'Message', 'required');
-		$this->form_validation->set_error_delimiters('<p class="small m-0">', '</p>');
+		$this->form_validation->set_error_delimiters('<p class="form-error">', '</p>');
 
 		if($this->form_validation->run() === FALSE) {
 			$data['errors'] = validation_errors();

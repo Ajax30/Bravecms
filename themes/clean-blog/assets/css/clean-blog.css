@@ -362,6 +362,32 @@ header.masthead .post-heading .meta a {
   }
 }
 
+.alert-hidden {
+  display: none;
+}
+
+.form-error {
+  font-size: .9rem;
+  margin: 0 0 5px 0;
+}
+
+.form-error:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label.error {
+  margin: 0;
+  position: absolute;
+  right: 7px;
+  bottom: 3px;
+  color: #a94442;
+  font-size: 11px;
+}
+
 .floating-label-form-group {
   font-size: 14px;
   position: relative;

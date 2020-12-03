@@ -1,11 +1,17 @@
 <div class="comments-form">
 	<h3>Leave a comment</h3>
 
-	<div id="comment_add_msg" class="alert alert-hidden alert-success mb-4"></div>
+	<div id="msgContainer" class="alert alert-hidden alert-success mb-4"></div>
 
-	<form id="commentForm" action="{{base_url}}comments/create/{{post.id}}" method="post" novalidate>
+	<form id="ajaxForm"
+		action="{{base_url}}comments/create/{{post.id}}"
+			method="post"
+						data-successmsg="Your comment will be published after approval" 
+							data-failmsg="Sorry, we could not add your comment"
+								novalidate>
 		<input type="hidden" name="postid" value="{{post.id}}">
 		<input type="hidden" name="slug" value="{{post.slug}}">
+
 		<div class="row uniform">
 			<div class="form-controll 6u 12u$(xsmall)">
 				<input type="text" name="name" id="name" placeholder="Name" data-rule-required="true" />

@@ -17,27 +17,34 @@
 			</div>
 		{% endif %}
 
-		<form name="contactForm" id="contactForm" action="{{base_url}}contact" method="post" novalidate>		
-			<div class="control-group mb-3">
-				<div class="form-group floating-label-form-group pb-0">
-					<input type="text" class="form-control px-1" placeholder="Name" name="name" id="name" value="{{set_value('name')}}">
-				</div>
-			</div>
-			<div class="control-group mb-3">
-				<div class="form-group floating-label-form-group pb-0">
-					<input type="email" class="form-control px-1" placeholder="Email Address" name="email" id="email" value="{{set_value('email')}}">
-				</div>
-			</div>
-			<div class="control-group mb-3">
-				<div class="form-group floating-label-form-group pb-0">
-					<input type="text" class="form-control px-1" placeholder="Subject" name="subject" id="subject" value="{{set_value('subject')}}">
-				</div>
-			</div>
-			<div class="control-group mb-3">
-				<div class="form-group floating-label-form-group pb-0">
-					<textarea rows="5" class="form-control px-1" placeholder="Message" name="message" id="message">{{set_value('message')}}</textarea>
-				</div>
-			</div>
-			<button type="submit" class="btn btn-block btn-primary" id="sendMessageButton">Send</button>
+		<div id="msgContainer" class="alert alert-hidden alert-success text-center mb-4"></div>
+
+		<form name="contactForm" id="ajaxForm"
+				action="{{base_url}}contact"
+					method="post"
+						data-successmsg="Your message was delivered" 
+							data-failmsg="Sorry, we could deliver your message"
+								novalidate>		
+								<div class="control-group mb-3">
+									<div class="form-group pb-0">
+										<input type="text" class="form-control px-1" placeholder="Name" name="name" id="name" data-rule-required="true" value="{{set_value('name')}}">
+									</div>
+								</div>
+								<div class="control-group mb-3">
+									<div class="form-group pb-0">
+										<input type="email" class="form-control px-1" placeholder="Email" name="email" id="email" data-rule-required="true" value="{{set_value('email')}}">
+									</div>
+								</div>
+								<div class="control-group mb-3">
+									<div class="form-group pb-0">
+										<input type="text" class="form-control px-1" placeholder="Subject" name="subject" id="subject"  data-rule-required="true" value="{{set_value('subject')}}">
+									</div>
+								</div>
+								<div class="control-group mb-3">
+									<div class="form-group pb-0">
+										<textarea rows="5" class="form-control px-1" placeholder="Message" name="message" id="message" data-rule-required="true">{{set_value('message')}}</textarea>
+									</div>
+								</div>
+								<button type="submit" class="btn btn-block btn-primary" id="sendMessageButton">Send</button>
 	</form>
 </div>
