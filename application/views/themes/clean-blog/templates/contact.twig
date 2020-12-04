@@ -13,7 +13,7 @@
 		{% if message_fail == true %}
 			<div class="alert alert-danger alert-dismissible text-center">
 				<button type="button" class="close" data-dismiss="alert">&times;</button>
-				Something went wrong while sending your message.
+				Sorry, we could not deliver your message
 			</div>
 		{% endif %}
 
@@ -22,8 +22,8 @@
 		<form name="contactForm" id="ajaxForm"
 				action="{{base_url}}contact"
 					method="post"
-						data-successmsg="Your message was delivered" 
-							data-failmsg="Sorry, we could deliver your message"
+						data-successmsg="Your message was sent. We will reply as soon as possible." 
+							data-failmsg="Sorry, we could not deliver your message"
 								novalidate>		
 								<div class="control-group mb-3">
 									<div class="form-group pb-0">

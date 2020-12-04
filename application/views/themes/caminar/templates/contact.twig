@@ -5,7 +5,7 @@
 			<img src="{{base_url}}themes/caminar/assets/images/woman-with-laptop.jpg" alt="Contact">
 		</div>
 
-			<h2>Contact us</h2>
+		<h2>Contact us</h2>
 
 	{% if message_success == true %}
 		<div class="alert alert-success alert-dismissible text-center">
@@ -27,10 +27,9 @@
 			id="ajaxForm"
 				action="{{base_url}}contact"
 					method="post"
-						data-successmsg="Your message was delivered" 
-							data-failmsg="Sorry, we could deliver your message"
+						data-successmsg="Your message was sent. We will reply as soon as possible." 
+							data-failmsg="Sorry, we could not deliver your message"
 								novalidate>
-
 								<div class="row uniform">	
 									<div class="form-controll 12u$">
 										<input type="text" class="form-control px-1 {{ form_error('name') ? 'error' }}" placeholder="Name" name="name" id="name" value="{{set_value('name' )}}" data-rule-required="true">
@@ -42,7 +41,6 @@
 										{{ form_error('email') ? form_error('email') }}
 									</div>
 								</div>
-
 								<div class="row uniform">	
 									<div class="form-controll 12u$">
 										<input type="text" class="form-control px-1 {{ form_error('subject') ? 'error' }}" placeholder="Subject" name="subject" id="subject" value="{{set_value('subject' )}}" data-rule-required="true">
