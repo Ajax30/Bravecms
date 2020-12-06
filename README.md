@@ -46,7 +46,7 @@ Use this file to include your CSS and JavaScript files. Supose the main (or only
 
 Similarly, you will include your script file(s):
 
-  <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
+    <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
 
 To make yout theme the active one, go to `application/models/Static_model.php` and replace the currently active theme's directory name with yours:
 
@@ -54,7 +54,7 @@ To make yout theme the active one, go to `application/models/Static_model.php` a
 
 Note that the Static_model also sends to views some **useful variables** like, for instance, `site_title`.
  
- On the same lavel with your theme's `layout.twig` file, add a *templates* directory, that will contain the templates for your posts, single post, pages, etc. These teplates will be injected in the master layout file (layout.twig) in the proper place, by the folowing snippet (You can choose what you inject in the layout file):
+On the same lavel with your theme's `layout.twig` file, add a *templates* directory, that will contain the templates for your posts, single post, pages, etc. These teplates will be injected in the master layout file (layout.twig) in the proper place, by the folowing snippet (You can choose what you inject in the layout file):
 
 	{% if singlePost is defined %}
 		{{include(singlePost)}}
