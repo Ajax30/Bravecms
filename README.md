@@ -83,17 +83,17 @@ Considering the information we have so far, here is how a basic layout file shou
 	  </head>
 		<body>
 		  <div class="container">
-				{% if singlePost is defined %}
-					{{include(singlePost)}}
-				{% elseif pageTemplate is defined  %}
-					{{include(pageTemplate)}}
-				{% elseif contactForm is defined  %}
-					{{include(contactForm)}}
-				{% elseif notFound is defined  %}
-					{{include(notFound)}}
-				{% else %}
-				{{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}				
-				{% endif %}
+        	{% if singlePost is defined %}
+              {{include(singlePost)}}
+            {% elseif pageTemplate is defined  %}
+              {{include(pageTemplate)}}
+            {% elseif contactForm is defined  %}
+              {{include(contactForm)}}
+        	 {% elseif notFound is defined  %}
+              {{include(notFound)}}
+        	 {% else %}
+              {{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}				
+        	 {% endif %}
 		  </div>
 		  <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
 		</body>
