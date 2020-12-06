@@ -1,6 +1,6 @@
 (function($) {
 
-	// Add comments via AJAX
+		// Post via AJAX
   $("#ajaxForm").validate({
     rules: {
       email: {

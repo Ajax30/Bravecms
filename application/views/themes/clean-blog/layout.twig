@@ -146,13 +146,12 @@
     </div>
   </footer>
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="{{base_url}}themes/{{theme_directory}}/vendor/jquery/jquery.min.js"></script>
+  <script src="{{base_url}}/assets/js/jquery.min.js"></script>
+  <script src="{{base_url}}/assets/js/jquery.validate.min.js"></script>
+	<script src="{{base_url}}/assets/js/ajaxform.js"></script>
+  <!-- Theme-specific scripts -->
   <script src="{{base_url}}themes/{{theme_directory}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <!-- Custom scripts for this template -->
   <script src="{{base_url}}themes/{{theme_directory}}/assets/js/clean-blog.min.js"></script>
-  <script src="{{base_url}}/themes/{{theme_directory}}/assets/js/jquery.validate.min.js"></script>
-  <script src="{{base_url}}/themes/{{theme_directory}}/assets/js/ajaxform.js"></script>
   {% if is_cookieconsent == true %} 
     <script>
         window.cookieconsent.initialise({
