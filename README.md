@@ -101,17 +101,17 @@ Considering the information we have so far, here is how a basic layout file shou
 
 The **Post controller** (`application/controllers/Posts.php`) already sends a `$posts` variable to the `layout.php` Twig view so we can display a list of posts by adding this snippet in `application/views/themes/mytheme/templates/posts.twig`:
 
-	{% if posts %}
-		{% for post in posts %}
-		<div class="post">
-			<h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
-		</div>
-		{% endfor %}
-	{% else %}
-		<p>There are no posts yet.</p>
-	{% endif %}
+    {% if posts %}
+     {% for post in posts %}
+      <div class="post">
+       <h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
+      </div>
+     {% endfor %}
+    {% else %}
+     <p>There are no posts yet.</p>
+    {% endif %}
 
-You can find all the other variables that display content in the two already existing themes (or in the front-end controllers).
+You can find all the other variables that display content in the two *already existing* themes (or in the front-end controllers).
 
 This application is intended to provide an easy way to "merge" an **HTML template** with its own **Content Management System**, which is so easy to use it need not be explained.
 
