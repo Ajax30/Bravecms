@@ -82,34 +82,34 @@ Considering the information we have so far, here is how a basic layout file shou
 		<link rel="stylesheet" href="{{base_url}}themes/{{theme_directory}}/assets/css/style.css">
 	  </head>
 		<body>
-			<div class="container">
-			<!-- Inject content hare -->
-			{% if singlePost is defined %}
-				{{include(singlePost)}}
-			{% elseif pageTemplate is defined  %}
-				{{include(pageTemplate)}}
-			{% elseif contactForm is defined  %}
-				{{include(contactForm)}}
-			{% elseif notFound is defined  %}
-				{{include(notFound)}}
-			{% else %}
-				{{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}
-			{% endif %}
-			</div>
-			<script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
+		  <div class="container">
+		    <!-- Inject content hare -->
+		    {% if singlePost is defined %}
+			  {{include(singlePost)}}
+		    {% elseif pageTemplate is defined  %}
+			  {{include(pageTemplate)}}
+		    {% elseif contactForm is defined  %}
+			  {{include(contactForm)}}
+		    {% elseif notFound is defined  %}
+			  {{include(notFound)}}
+		    {% else %}
+			  {{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}
+		    {% endif %}
+		  </div>
+		  <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
 		</body>
     </html>
 
 The **Post controller** (`application/controllers/Posts.php`) already sends a `$posts` variable to the `layout.php` Twig view so we can display a list of posts by adding this snippet in `application/views/themes/mytheme/templates/posts.twig`:
 
 	{% if posts %}
-		{% for post in posts %}
-			<div class="post">
-			  <h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
-			</div>
-		{% endfor %}
+	  {% for post in posts %}
+		<div class="post">
+		  <h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
+		</div>
+	  {% endfor %}
 	{% else %}
-		<p>There are no posts yet.</p>
+	  <p>There are no posts yet.</p>
 	{% endif %}
 
 You can find all the other variables that display content in the two already existing themes (or in the front-end controllers).
