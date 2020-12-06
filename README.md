@@ -57,15 +57,15 @@ Note that the Static_model also sends to views some **useful variables** like, f
 On the same lavel with your theme's `layout.twig` file, add a *templates* directory, that will contain the templates for your posts, single post, pages, etc. These teplates will be injected in the master layout file (layout.twig) in the proper place, by the folowing snippet (You can choose what you inject in the layout file):
 
     {% if singlePost is defined %}
-        {{include(singlePost)}}
+      {{include(singlePost)}}
     {% elseif pageTemplate is defined  %}
-        {{include(pageTemplate)}}
+      {{include(pageTemplate)}}
     {% elseif contactForm is defined  %}
-        {{include(contactForm)}}
+      {{include(contactForm)}}
 	 {% elseif notFound is defined  %}
-        {{include(notFound)}}
+      {{include(notFound)}}
 	 {% else %}
-        {{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}				
+      {{ include('themes/' ~ theme_directory ~ '/templates/posts.twig') }}				
 	 {% endif %}
 
 The *templates* directory, for which the snippet above is used, should contain the templates: 404.twig, posts.twig, singlepost.twig, page.twig and contact.twig.
