@@ -52,7 +52,7 @@ To make yout theme the active one, go to `application/models/Static_model.php` a
 
     $data['theme_directory'] = "mytheme";
 
-Note that the Static_model also sends to views some **useful variables** like, for instance, `site_title`.
+Note that the **Static_model** adds a few **useful variables** to the `$data` array (`site_title`, for instance) and you can use those variables in your theme's views.
  
 On the same lavel with your theme's `layout.twig` file, add a *templates* directory, that will contain the templates for your posts, single post, pages, etc. These teplates will be injected in the master layout file (layout.twig) in the proper place, by the folowing snippet (You can choose what you inject in the layout file):
 
@@ -102,13 +102,13 @@ Considering the information we have so far, here is how a basic layout file shou
 The **Post controller** (`application/controllers/Posts.php`) already sends a `$posts` variable to the `layout.php` Twig view so we can display a list of posts by adding this snippet in `application/views/themes/mytheme/templates/posts.twig`:
 
 	{% if posts %}
-	  {% for post in posts %}
+		{% for post in posts %}
 		<div class="post">
-		  <h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
+			<h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
 		</div>
-	  {% endfor %}
+		{% endfor %}
 	{% else %}
-	  <p>There are no posts yet.</p>
+		<p>There are no posts yet.</p>
 	{% endif %}
 
 You can find all the other variables that display content in the two already existing themes (or in the front-end controllers).
