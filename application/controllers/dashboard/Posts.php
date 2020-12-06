@@ -245,7 +245,7 @@ class Posts extends CI_Controller {
 		if ($this->form_validation->run() && empty($errors)) {
 			$this->Posts_model->update_post($id, $post_image, $slug);
 			$this->session->set_flashdata('post_updated', 'Your post has been updated');
-			redirect('/' . $slug);
+			redirect('/dashboard');
 		} else {
 			$this->form_validation->run();
 			$this->session->set_flashdata('errors', validation_errors());
@@ -264,12 +264,12 @@ class Posts extends CI_Controller {
 		if (($this->session->userdata('user_id') == $data['post']->author_id) || $this->session->userdata('user_is_admin')) {
 			$this->Posts_model->delete_post($slug);
 			$this->session->set_flashdata('post_deleted', 'The post has been deleted');
-			redirect('/');
+			redirect('/dashboard');
 		} else {
 			/* If the current user is not the author
 			of the post do not alow delete */
 			$this->session->set_flashdata('no_permission_to_delete_post', 'You are not authorized to delete this post');
-			redirect('/' . $slug);
+			redirect('/dashboard');
 		}
 	}
 
