@@ -30,11 +30,11 @@ You can easily integrate your own HTML theme with this CMS. For this purpose, th
 
 Below is a guide on how to add your own theme.
 
-## Add theme's assets
+## Add the theme's assets
 
 First, make a directory for your theme's assets in the `themes` directory (which can be found in the application's root directory). Supose your theme's directory is *mytheme*, you will have a `themes/mytheme` directory to add tour theme's assts in: your CSS files in `themes/mytheme/assets/css`, your Javascript files in `themes/mytheme/assets/js`, your images in `themes/mytheme/assets/images`.
 
-## Add theme's views
+## Add the theme's views
 
 In `application/views/themes/`, add a *mytheme* directory for tour theme's views. 
 
