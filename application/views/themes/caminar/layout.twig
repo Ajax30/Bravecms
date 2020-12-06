@@ -65,8 +65,8 @@
         window.cookieconsent.initialise({
         container: document.getElementById("cookieconsent"),
         palette:{
-        popup: {background: "#0068BB"},
-        button: {background: "#fff"},
+        popup: {background: "#323232"},
+        button: {background: "#41B883"},
         },
         revokable: true,
         onStatusChange: function(status) {
@@ -79,7 +79,7 @@
         "content": {
           "header": 'Cookies used on the website!',
           "message": 'This website uses cookies to improve your experience.',
-          "dismiss": 'Got it!',
+          "dismiss": 'Accept cookies!',
           "allow": 'Allow cookies',
           "deny": 'Decline',
           "link": 'Learn more',
@@ -89,6 +89,6 @@
           }
       });
     </script>
-  {% endif %}
+  	{% endif %}
 	</body>
 </html>
