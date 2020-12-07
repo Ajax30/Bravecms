@@ -104,7 +104,10 @@ The **Post controller** (`application/controllers/Posts.php`) already sends a `$
     {% if posts %}
      {% for post in posts %}
       <div class="post">
-       <h2><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h2>
+       <h2 class="post-title">
+        <a href="{{base_url}}{{post.slug}}">{{post.title}}</a>
+       </h2>
+       <div class="post-excerpt">{{post.description}}</div>
       </div>
      {% endfor %}
     {% else %}
