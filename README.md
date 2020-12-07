@@ -114,6 +114,17 @@ The **Post controller** (`application/controllers/Posts.php`) already sends a `$
      <p>There are no posts yet.</p>
     {% endif %}
 
+In `singlepost.twig` you can display the full contet of the post by using Twig's raw filter:
+
+    <div class="post">
+      <h2 class="post-title">
+        <a href="{{base_url}}{{post.slug}}">{{post.title}}</a>
+      </h2>
+    <div class="post-content">
+      {{post.content | raw}}
+    </div>
+    </div>
+
 You can find all the other variables that display content in the two *already existing* themes (or in the front-end controllers).
 
 This application is intended to provide an easy way to "merge" an **HTML template** with its own **Content Management System**, which is so easy to use it need not be explained.
