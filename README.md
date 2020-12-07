@@ -120,9 +120,9 @@ In `singlepost.twig` you can display the full contet of the post by using Twig's
       <h2 class="post-title">
         <a href="{{base_url}}{{post.slug}}">{{post.title}}</a>
       </h2>
-    <div class="post-content">
-      {{post.content | raw}}
-    </div>
+      <div class="post-content">
+        {{post.content | raw}}
+      </div>
     </div>
 
 You can find all the other variables that display content in the two *already existing* themes (or in the front-end controllers).
