@@ -8,7 +8,7 @@ class Contact extends CI_Controller {
 	}
 
 	private $headers = "";
-	private $to = 'razvan_zamfir80@yahoo.com'; 
+	private $to = 'youremail@somedomain.com'; 
 	private $email_address = '';
 	private $name = '';
 	private $subject = ''; 
