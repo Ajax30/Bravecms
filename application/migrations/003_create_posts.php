@@ -58,6 +58,7 @@ class Migration_Create_Posts extends CI_Migration
 
      'updated_at'=>array(
         'type'=>'TIMESTAMP',
+        'default' => NULL
       ),
 
     ));
