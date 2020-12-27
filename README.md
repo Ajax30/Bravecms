@@ -127,7 +127,7 @@ In `singlepost.twig` you can display the full contet of the post by using Twig's
 
 You can find all the other variables that display content in the two *already existing* themes (or in the front-end controllers).
 
-This application is intended to provide an easy way to "merge" an **HTML template** with its own **Content Management System**, which is so easy to use it need not be explained.
+This application is intended to provide an easy way to "merge" an **HTML template** with its own **Content Management System**, which is so easy to use it needs not be explained.
 
 Let me know if this small guide is comprehensive enough.
 
