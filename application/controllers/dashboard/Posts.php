@@ -73,7 +73,7 @@ class Posts extends CI_Controller {
 			$this->load->library('pagination');
 			$config['base_url'] = base_url("/dashboard/posts");
 			$config['query_string_segment'] = 'page';
-			$config['total_rows'] =	$this->Posts_model->get_num_rows();
+			$config['total_rows'] =	$this->Posts_model->search_count($expression);
 			$config['per_page'] = 10;
 			
 			if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
