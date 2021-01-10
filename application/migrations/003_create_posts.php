@@ -51,6 +51,11 @@ class Migration_Create_Posts extends CI_Migration
         'constraint' => 255,
       ),
 
+      'featured'=>array(
+        'type'=>'TINYINT',
+        'constraint' => 1
+      ),
+
      'created_at'=>array(
         'type'=>'TIMESTAMP',
         'default' => NULL

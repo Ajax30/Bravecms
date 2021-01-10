@@ -8,6 +8,7 @@ class Static_model extends CI_Model {
 		$data['tagline'] = "A simple blog application made with Codeigniter 3";
 		$data['company_name'] = "My Company";
 		$data['company_email'] = "company@domain.com";
+		$data['is_featured'] = true;
 		$data['twitter'] = "https://twitter.com/";
 		$data['facebook'] = "https://facebook.com/";
 		$data['instagram'] = "https://instagram.com/";

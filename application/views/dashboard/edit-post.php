@@ -48,6 +48,15 @@
                 </select>
               </div>
 
+              <div id="switchContainer" class="pb-4">
+                <p class="m-0 pr-2 text-muted">Do you want to add this post to the homepage carousel?</p>
+                <div class="form-group switch-toggle">
+                  <input type="checkbox" name="featured" id="switch1" <?php if ($post->featured == 1): ?>checked<?php endif; ?>>
+                  <label class="mb-0" for="switch1">Toggle</label>
+                </div>
+              </div>
+
+
               <input type="hidden" name="postimage" id="postimage" value="<?php echo $post->post_image; ?>">
 
               <label for="postimage" id="imageUploader">Upload an image</label>

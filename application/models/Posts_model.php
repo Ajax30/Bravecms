@@ -16,6 +16,13 @@ class Posts_model extends CI_Model {
     return $query->result();
 	}
 
+	public function featured_posts() {
+		$this->db->select('posts.*');
+		$this->db->order_by('posts.id', 'DESC');
+		$query = $this->db->get_where('posts', array('featured' => 1));
+		return $query->result();
+	}
+
 	public function search_count($expression) {
 		$query = $this->db->like('title', $expression)
 									->or_like('description', $expression)
@@ -122,13 +129,14 @@ class Posts_model extends CI_Model {
 	}
 
   // Create, post
-	public function create_post($post_image, $slug) {
+	public function create_post($post_image, $slug, $featured) {
 		$data = [
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'description' => $this->input->post('desc'),
 			'content' => $this->input->post('body'),
 			'post_image' => $post_image,
+			'featured' => $featured,
 			'author_id' => $this->session->userdata('user_id'),
 			'cat_id' => $this->input->post('category'),
 			'created_at' => date('Y-m-d H:i:s')
@@ -137,13 +145,14 @@ class Posts_model extends CI_Model {
 	}
 
 	// Update post
-	public function update_post($id, $post_image, $slug) {
+	public function update_post($id, $post_image, $slug, $featured) {
 		$data = [
 			'title' => $this->input->post('title'),
 			'slug' => $slug,
 			'description' => $this->input->post('desc'),
 			'content' => $this->input->post('body'),
 			'post_image' => $post_image,
+			'featured' => $featured,
 			'cat_id' => $this->input->post('category'),
 			'updated_at' => date('Y-m-d H:i:s')
 		];
