@@ -9,16 +9,19 @@ class Posts_model extends CI_Model {
 	}
 
 	public function get_posts($limit, $offset) {
-    $this->db->select('posts.*,categories.name as post_category');
+    $this->db->select('posts.*, categories.name as post_category, authors.first_name as author_fname, authors.last_name as author_lname');
     $this->db->order_by('posts.id', 'DESC');
-    $this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('authors', 'posts.author_id = authors.id', 'inner');
     $query = $this->db->get('posts', $limit, $offset);
     return $query->result();
 	}
 
 	public function featured_posts() {
-		$this->db->select('posts.*');
+		$this->db->select('posts.*, categories.name as post_category, authors.first_name as author_fname, authors.last_name as author_lname');
 		$this->db->order_by('posts.id', 'DESC');
+		$this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('authors', 'posts.author_id = authors.id', 'inner');
 		$query = $this->db->get_where('posts', array('featured' => 1));
 		return $query->result();
 	}
