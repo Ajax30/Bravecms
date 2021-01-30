@@ -8,11 +8,11 @@
 				<a href="/posts/byauthor/{{post.author_id}}" title="All posts by {{post.first_name}} {{post.last_name}}">{{post.first_name}} {{post.last_name}}</a>
 			</span>
 
-			<span class="pull-right">Published on {{post.created_at | date("M d, Y")}} in <a href="categories/posts/{{post.cat_id}}" title="All posts in {{post.category_name}}">{{post.category_name}}</a></span>
+			<span class="pull-right">Published on {{post.created_at | date("M d, Y")}} in <a href="{{base_url}}categories/posts/{{post.cat_id}}" title="All posts in {{post.category_name}}">{{post.category_name}}</a></span>
 		</p>
 
 		<div class="image fit">
-			<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" alt="{{post.title}}">
+			<img src="{{base_url}}assets/img/posts/{{post.post_image}}" alt="{{post.title}}">
 		</div>
 
 		<div class="post-content">
