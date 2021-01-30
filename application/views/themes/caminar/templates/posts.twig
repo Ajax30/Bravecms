@@ -1,4 +1,5 @@
 <div class="wrapper style1">
+{% if posts %}
 	{% for post in posts %}
 		{% if loop.first %}
 			<div class="image fit flush">
@@ -28,6 +29,9 @@
 			</div>
 		{% endif %}
 	{% endfor %}
+{% else %}
+	<p class="text-center">There are no posts yet</p>
+{% endif %}
 </div>
 
 <div class="pagination-container">{{ pagination|raw }}</div>
