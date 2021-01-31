@@ -1,3 +1,9 @@
+# What is this about? 
+
+This is a simple, easy to use, CMS, ideal for an online newspaper or a blog.
+
+![Dashboard preview](https://github.com/Ajax30/twigPress/blob/master/preview.jpg)
+
 # How to use this CMS
 
 
