@@ -1,0 +1,72 @@
+<!-- content
+================================================== -->
+<section class="s-content">
+
+		<div class="row">
+				<div class="column large-12">
+
+						<article class="s-content__entry format-standard">
+
+								<div class="s-content__media">
+										<div class="s-content__post-thumb">
+												<img src="{{base_url}}assets/img/posts/{{post.post_image}}" alt="{{post.title}}">
+										</div>
+								</div> <!-- end s-content__media -->
+
+								<div class="s-content__entry-header">
+										<h1 class="s-content__title s-content__title--post">{{post.title}}</h1>
+								</div> <!-- end s-content__entry-header -->
+
+								<div class="s-content__primary">
+
+										<div class="s-content__entry-content">
+												{{post.content | raw}}
+										</div><!-- end s-entry__entry-content -->
+
+										<div class="s-content__entry-meta">
+
+												<div class="entry-author meta-blk">
+														<div class="author-avatar">
+																<img src="{{base_url}}assets/img/authors/{{author_image}}" alt="{{post.first_name}} {{post.last_name}}" class="avatar">
+														</div>
+														<div class="byline">
+																<span class="bytext">Posted By</span>
+																<a href="{{base_url}}posts/byauthor/{{post.author_id}}">{{post.first_name}} {{post.last_name}}</a>
+														</div>
+												</div>
+
+												<div class="meta-bottom">
+														
+														<div class="entry-cat-links meta-blk">
+																<div class="cat-links">
+																		<span>In</span> 
+																		 <a href="{{base_url}}categories/posts/{{post.cat_id}}" title="See posts in {{post.category_name}}">{{post.category_name}}</a>
+																</div>
+
+																<span>On</span> {{post.created_at | date("M d, Y")}}
+														</div>
+												</div>
+
+										</div> <!-- s-content__entry-meta -->
+
+										<div class="s-content__pagenav">
+												<div class="prev-nav">
+														<a href="#" rel="prev">
+																<span>Previous</span>
+																Tips on Minimalist Design 
+														</a>
+												</div>
+												<div class="next-nav">
+														<a href="#" rel="next">
+																<span>Next</span>
+																A Practical Guide to a Minimalist Lifestyle.
+														</a>
+												</div>
+											</div> <!-- end s-content__pagenav -->
+								</div> <!-- end s-content__primary -->
+						</article> <!-- end entry -->
+				</div> <!-- end column -->
+		</div> <!-- end row -->
+
+		{{ include('themes/' ~ theme_directory ~ '/partials/comments.twig') }}
+</section> <!-- end s-content -->

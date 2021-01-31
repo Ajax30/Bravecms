@@ -57,10 +57,11 @@ class Posts_model extends CI_Model {
 	}
 
 	public function get_posts_by_category($category_id, $limit, $offset) {
-		$this->db->select('posts.*');
+		$this->db->select('posts.*, categories.name as post_category, authors.first_name as author_fname, authors.last_name as author_lname');
 		$this->db->order_by('posts.id', 'DESC');
 		$this->db->limit($limit, $offset);
-		$this->db->join('categories', 'categories.id = posts.cat_id');
+		$this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('authors', 'posts.author_id = authors.id', 'inner');
 		$query = $this->db->get_where('posts', array('cat_id' => $category_id));
 		return $query->result();
 	}
@@ -72,10 +73,11 @@ class Posts_model extends CI_Model {
 	}
 
 	public function get_posts_by_author($authorid, $limit, $offset) {
-		$this->db->select('posts.*,categories.name as post_category');
+		$this->db->select('posts.*, categories.name as post_category, authors.first_name as author_fname, authors.last_name as author_lname');
     $this->db->order_by('posts.id', 'DESC');
     $this->db->limit($limit, $offset);
-    $this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('categories', 'posts.cat_id = categories.id', 'inner');
+		$this->db->join('authors', 'posts.author_id = authors.id', 'inner');
 		$query = $this->db->get_where('posts', array('posts.author_id' => $authorid));
 		return $query->result();
 	}

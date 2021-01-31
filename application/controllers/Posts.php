@@ -42,6 +42,13 @@ class Posts extends CI_Controller {
     	//use limit and offset returned by _initPaginator method
 		$data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
 		$this->twig->addGlobal('pagination', $this->pagination->create_links());
+
+		// featured posts
+		if ($data['is_featured']) {
+			$data['featured'] = $this->Posts_model->featured_posts();
+			$this->twig->addGlobal('featuredPosts', "themes/{$data['theme_directory']}/partials/hero.twig");
+		}
+
 		$this->twig->display("themes/{$data['theme_directory']}/layout", $data);
 	}
 

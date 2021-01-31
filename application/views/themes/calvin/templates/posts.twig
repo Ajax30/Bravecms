@@ -1,0 +1,78 @@
+{% if is_featured == true and featuredPosts is defined %}
+	{{include(featuredPosts)}}
+{% endif %}
+
+
+<!-- content
+    ================================================== -->
+    <section class="s-content s-content--no-top-padding">
+        <!-- masonry
+        ================================================== -->
+        <div class="s-bricks">
+						{% if posts %}
+							<div class="masonry">
+									<div class="bricks-wrapper h-group">
+
+											<div class="grid-sizer"></div>
+
+											<div class="lines">
+													<span></span>
+													<span></span>
+													<span></span>
+											</div>
+
+										{% for post in posts %}
+										<article class="brick entry" data-aos="fade-up">
+													<div class="entry__thumb">
+															<a href="{{base_url}}{{post.slug}}" class="thumb-link">
+																	<img src="{{base_url}}/assets/img/posts/{{post.post_image}}" 
+																				alt="{{post.title}}">
+															</a>
+													</div> <!-- end entry__thumb -->
+			
+													<div class="entry__text">
+															<div class="entry__header">
+																	<h1 class="entry__title"><a href="{{base_url}}{{post.slug}}">{{post.title}}</a></h1>
+																	
+																	<div class="entry__meta">
+																			<div class="byline">By:
+																					<span class="author">
+																							<a href="{{base_url}}posts/byauthor/{{post.author_id}}">{{post.author_fname}} {{post.author_lname}}</a>
+																					</span>
+																			</div>
+																			<div class="cat-links">
+																					In: <a href="{{base_url}}/categories/posts/{{post.cat_id}}">{{post.post_category}}</a>
+																			</div>
+																	</div>
+															</div>
+															<div class="entry__excerpt">
+																	<p>{{post.description}}</p>
+															</div>
+															<a class="entry__more-link" href="{{base_url}}{{post.slug}}">Learn More</a>
+													</div> <!-- end entry__text -->
+											
+											</article> <!-- end article -->
+											{% endfor %}
+
+									</div> <!-- end brick-wrapper -->
+
+							</div> <!-- end masonry -->
+						{% else %}
+							<div class="s-pageheader">
+								<p class="s-content__title">
+									There are no posts {% if expression is defined %}containing <span class="quote-inline">{{expression}}</span> {% else %}yet{% endif %}
+								</p>
+							</div>
+						{% endif %}
+
+						{% if posts %}
+							<div class="row">
+									<div class="column large-12">
+											<nav class="pgn">
+													{{ pagination|raw }}
+											</nav> <!-- end pgn -->
+									</div> <!-- end column -->
+							</div> <!-- end row -->
+						{% endif %}
+        </div> <!-- end s-bricks -->
+    </section> <!-- end s-content -->

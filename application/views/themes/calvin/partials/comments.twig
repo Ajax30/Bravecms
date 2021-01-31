@@ -1,0 +1,78 @@
+<!-- comments
+        ================================================== -->
+        <div class="comments-wrap">
+            <div id="comments" class="row">
+                <div class="column large-12">
+										{% if comments %}
+                    <h3>There are {{ comments | length }}  comments</h3>
+                    <!-- START commentlist -->
+                    <ol class="commentlist">
+											{% for comment in comments %}
+											<li class="depth-1 comment">
+													<div class="comment__avatar">
+															<img class="avatar" src="{{base_url}}themes/{{theme_directory}}/assets/images/default-avatar.png" alt="" width="50" height="50">
+													</div>
+													<div class="comment__content">
+															<div class="comment__info">
+																	<div class="comment__author">{{comment.name}}</div>
+																	<div class="comment__meta">
+																			<div class="comment__time">{{comment.created_at  | date("M d, Y")}}</div>
+																			<!-- reply link
+																			<div class="comment__reply">
+																					<a class="comment-reply-link" href="#">Reply</a>
+																			</div>
+																			-->
+																	</div>
+															</div>
+															<div class="comment__text">
+																<p>{{comment.comment}}</p>
+															</div>
+													</div>
+											</li><!-- end comment level 1 -->
+											{% endfor %}
+										</ol>
+										{% else %}
+											<h3>There are no comments yet</h3>
+										{% endif %}
+                    <!-- END commentlist -->
+                </div> <!-- end col-full -->
+            </div> <!-- end comments -->
+
+
+          <div class="row comment-respond">
+							<!-- START respond -->
+							<div id="respond" class="column">
+								<h3>
+									Add Comment 
+									<span>Your email address will not be published.</span>
+								</h3>
+
+								<div id="msgContainer" class="alert-box alert-box--success is-hidden"></div>
+
+								<form id="ajaxForm"
+											action="{{base_url}}comments/create/{{post.id}}"
+												method="post"
+													data-successmsg="Your comment will be published after approval" 
+														data-failmsg="Sorry, we could not add your comment"
+															novalidate>
+															<fieldset>
+																<input type="hidden" name="postid" value="{{post.id}}">
+																<input type="hidden" name="slug" value="{{post.slug}}">
+																	<div class="form-field">
+																		<input type="text" name="name" class="h-full-width h-remove-bottom" id="name" placeholder="Name" data-rule-required="true" />
+																	</div>
+																	<div class="form-field">
+																		<input type="email" name="email" class="h-full-width h-remove-bottom" id="email" placeholder="Email" data-rule-required="true" />
+																	</div>																	
+																	<div class="form-field message">
+																		<textarea name="message" rows="6" class="h-full-width" id="message" placeholder="Your Message" data-rule-required="true"></textarea>
+																	</div>
+																	<div class="form-field">
+																		<input type="submit" value="Add comment" class="btn btn--primary btn-wide btn--large h-full-width" />
+																	</div>
+															<fieldset>
+								</form> <!-- end form -->
+							</div>
+                <!-- END respond-->
+            </div> <!-- end comment-respond -->
+        	</div> <!-- end comments-wrap -->

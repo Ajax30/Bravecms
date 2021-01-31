@@ -1,0 +1,70 @@
+<section class="s-content">
+        <div class="row">
+            <div class="column large-12">
+                <article class="s-content__entry">
+
+									<div class="s-content__media">
+											<img src="{{base_url}}themes/{{theme_directory}}/assets/images/contact.jpg" alt="Contact">
+									</div> <!-- end s-content__media -->                  
+
+                    <div class="s-content__entry-header">
+                        <h1 class="s-content__title">Get In Touch With Us</h1>
+                    </div> <!-- end s-content__entry-header -->
+
+                    <div class="s-content__primary">
+
+                        <div class="s-content__page-content">
+
+													<p class="lead">Use the form below to get in touch with us. We promise to answer within 24 hours</p> 
+
+													{% if errors %}
+														<div class="alert-box alert-box--error">{{errors | raw}}</div>
+													{% endif %}
+
+													{% if message_success == true %}
+														<div class="alert alert-success alert-dismissible text-center">
+															<span class="alert-box__close"></span>
+															Your message was sent. We will reply as soon as possible.
+														</div>
+													{% endif %}
+
+													{% if message_fail == true %}
+														<div class="alert-box alert-box--error">
+															<span class="alert-box__close"></span>
+															Sorry, we could not deliver your message
+														</div>
+													{% endif %}
+
+													<div id="msgContainer" class="alert alert-hidden alert-success text-center mb-4"></div>
+
+													<form name="contactForm" id="ajaxForm" class="s-content__form"
+															action="{{base_url}}contact"
+																method="post"
+																	data-successmsg="Your message was sent. We will reply as soon as possible." 
+																		data-failmsg="Sorry, we could not deliver your message"
+																			novalidate>
+																			<fieldset>		
+																				<div class="form-field">
+																						<input type="text" class="h-full-width" placeholder="Name" name="name" id="name" data-rule-required="true" value="{{set_value('name') | striptags}}">
+																				</div>
+																				<div class="form-field">
+																						<input type="email" class="h-full-width" placeholder="Email" name="email" id="email" data-rule-required="true" value="{{set_value('email') | striptags}}">
+																					</div>
+																				<div class="form-field">
+																						<input type="text" class="h-full-width" placeholder="Subject" name="subject" id="subject"  data-rule-required="true" value="{{set_value('subject') | striptags}}">
+																				</div>
+																				<div class="form-field">
+																						<textarea rows="5" class="h-full-width" placeholder="Message" name="message" id="message" data-rule-required="true">{{set_value('message') | striptags}}</textarea>
+																				</div>
+																				<button type="submit" class="submit btn btn--primary h-full-width" id="sendMessageButton">Send</button>
+																			<fieldset>
+													</form>
+											</div><!-- end s-entry__page-content -->		
+
+                    </div> <!-- end s-content__primary -->
+                </article> <!-- end entry -->
+
+            </div> <!-- end column -->
+        </div> <!-- end row -->
+
+    </section> <!-- end s-content -->

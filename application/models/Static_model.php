@@ -13,7 +13,7 @@ class Static_model extends CI_Model {
 		$data['facebook'] = "https://facebook.com/";
 		$data['instagram'] = "https://instagram.com/";
 
-		$data['theme_directory'] = "clean-blog";
+		$data['theme_directory'] = "calvin";
 		$data['is_frontend'] = false;
 		$data['is_ckeditor'] = false;
 		$data['is_cookieconsent'] = true;
