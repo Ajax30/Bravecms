@@ -60,7 +60,7 @@
 						{% else %}
 							<div class="s-pageheader">
 								<p class="s-content__title">
-									There are no posts {% if expression is defined %}containing <span class="quote-inline">{{expression}}</span> {% else %}yet{% endif %}
+									There are no posts {% if expression is defined %}containing <span class="quote-inline">{{expression}}</span> {% elseif category_name is defined %}in this category yet{% else %}yet{% endif %}
 								</p>
 							</div>
 						{% endif %}
