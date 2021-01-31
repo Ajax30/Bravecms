@@ -42,10 +42,10 @@
 						<p class="mt-0 text-muted text-center">There are no posts {% if category_name is defined %} in this category {% endif %} yet.</p>
 					{% endif %}	
 				{% endif %}
-
 				
-        <!-- Pager -->
-        <div class="clearfix">{{ pagination|raw }}</div>
+        {% if posts %}
+        	<div class="clearfix">{{ pagination|raw }}</div>
+				{% endif %}
       </div>
     </div>
   </div>
