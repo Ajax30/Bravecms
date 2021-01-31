@@ -61,7 +61,7 @@
 
               <label for="postimage" id="imageUploader">Upload an image</label>
               <div class="form-group">
-                <input type="file" name="userfile" id="postimage" size="20"> 
+                <input type="file" name="userfile" class="file-upload-btn" id="postimage" size="20"> 
                 <?php
                 if ($upload_errors = $this->session->flashdata('upload_errors')) {
                   if ($this->session->flashdata('upload_errors')) { ?>              

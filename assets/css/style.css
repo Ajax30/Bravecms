@@ -426,6 +426,51 @@ table a {
   transform: translateX(-100%);
 }
 
+.file-upload-btn {
+  width: 350px;
+}
+.file-upload-btn:focus {
+  border-width: 0 !important;
+  outline: none !important;
+}
+.file-upload-btn::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.file-upload-btn::before {
+  content: 'Upload image';
+  display: inline-block;
+  background-color: #28a745;
+  border-color: #28a745;
+  border-radius: 3px;
+  padding: 8px 12px 8px 32px;
+  outline: none;
+  white-space: nowrap;
+  -webkit-user-select: none;
+  cursor: pointer;
+  color: #fff;
+  font-size: 10pt;
+}
+.file-upload-btn:hover::before,
+.file-upload-btn:active::before {
+  background: #1e7e34;
+  border-color: #1c7430;
+}
+
+.file-upload-btn::after {
+  content: "\f093";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+/*--adjust as necessary--*/
+  color: #fff;
+  font-size: 16px;
+  padding-right:12px;
+  position: absolute;
+  top: 7px;
+  left: 12px;
+}
+
 /* Footer */
 .site-footer-wrapper {
   margin-top: auto;
