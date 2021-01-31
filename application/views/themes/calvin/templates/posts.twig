@@ -56,13 +56,22 @@
 
 									</div> <!-- end brick-wrapper -->
 
-							</div> <!-- end masonry -->
+							</div><!-- end masonry -->
 						{% else %}
-							<div class="s-pageheader">
-								<p class="s-content__title">
-									There are no posts {% if expression is defined %}containing <span class="quote-inline">{{expression}}</span> {% elseif category_name is defined %}in this category yet{% else %}yet{% endif %}
-								</p>
-							</div>
+							<div class="row">
+									<div class="column large-12">
+											<article class="s-content__entry"> 
+													<h1 class="s-content__title">{{category_name}}</h1>               
+													<div class="s-content__primary">
+															<div class="s-content__page-content">
+															<p class="s-content__title">
+																There are no posts {% if expression is defined %}containing <span class="quote-inline">{{expression}}</span> {% elseif category_name is defined %}in <span class="quote-inline">{{category_name}}</span> yet{% else %}yet{% endif %}
+															</p>
+															</div><!-- end s-entry__page-content -->
+													</div><!-- end s-content__primary -->
+											</article><!-- end entry -->
+									</div><!-- end column -->
+							</div><!-- end row -->
 						{% endif %}
 
 						{% if posts %}
