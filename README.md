@@ -2,7 +2,7 @@
 
 This is a simple, easy to use, CMS, ideal for an online newspaper or a blog.
 
-![Dashboard preview](https://github.com/Ajax30/twigPress/blob/master/preview.jpg)
+![Dashboard preview](https://github.com/Ajax30/twigPress/blob/master/preview.png)
 
 # How to use this CMS
 
