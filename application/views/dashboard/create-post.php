@@ -42,7 +42,7 @@
                 </div>
               </div>
 
-              <label for="postimage" id="imageUploader">Upload an image</label>
+              <label for="postimage" id="imageUploader" class="text-muted">Upload an image</label>
               <div class="form-group">
                 <input type="file" name="userfile" class="file-upload-btn" id="postimage" size="20">
                  <div class="error-messages">

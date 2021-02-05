@@ -29,7 +29,7 @@
             </div>
 
             <input type="hidden" name="avatar" id="avatar" value="<?php echo $author->avatar; ?>">
-              <label for="avatar">Upload avatar</label>
+              <label for="avatar" class="text-muted">Upload avatar</label>
               <div class="form-group d-flex mb-3">
                 <div class="w-75 pr-1">
                   <input type="file" name="userfile" class="file-upload-btn" id="uavatar" size="20">
