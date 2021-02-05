@@ -2816,6 +2816,10 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     transition: all .5s;
 }
 
+.alert-box p:last-child {
+    margin-bottom: 0;
+}
+
 /* -------------------------------------------------------------------
  * ## pagination
  * ------------------------------------------------------------------- */
