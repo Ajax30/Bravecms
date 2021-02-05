@@ -2856,6 +2856,7 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     position: relative;
 }
 
+.pgn ul li a::after,
 .pgn ul li span::after {
     content: "";
     display: block;
