@@ -116,6 +116,8 @@ class Posts extends CI_Controller {
 		$data['authors'] = $this->Usermodel->getAuthors();
 		$data['posts'] = $this->Posts_model->sidebar_posts($limit=5, $offset=0);
 		$data['post'] = $this->Posts_model->get_post($slug);
+		$data['next_post'] = $this->Posts_model->get_next_post($slug);
+		$data['prev_post'] = $this->Posts_model->get_prev_post($slug);
 		$data['author_image'] = isset($data['post']->avatar) && $data['post']->avatar !== '' ? $data['post']->avatar : 'default-avatar.png';
 
 		if ($data['categories']) {

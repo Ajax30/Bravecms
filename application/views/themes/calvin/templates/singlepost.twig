@@ -50,18 +50,23 @@
 										</div> <!-- s-content__entry-meta -->
 
 										<div class="s-content__pagenav">
+												{% if prev_post.slug %}
 												<div class="prev-nav">
-														<a href="#" rel="prev">
+														<a href="{{base_url}}{{prev_post.slug}}" rel="prev">
 																<span>Previous</span>
-																Tips on Minimalist Design 
+																{{prev_post.title}}
 														</a>
 												</div>
+												{% endif %}
+
+												{% if next_post.slug %}
 												<div class="next-nav">
-														<a href="#" rel="next">
+														<a href="{{base_url}}{{next_post.slug}}" rel="next">
 																<span>Next</span>
-																A Practical Guide to a Minimalist Lifestyle.
+																{{next_post.title}}
 														</a>
 												</div>
+												{% endif %}
 											</div> <!-- end s-content__pagenav -->
 								</div> <!-- end s-content__primary -->
 						</article> <!-- end entry -->

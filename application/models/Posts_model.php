@@ -121,6 +121,19 @@ class Posts_model extends CI_Model {
 		}
 	}
 
+	public function get_next_post($slug) {
+		$this->db->where('id >', $this->get_post($slug)->id);
+		$this->db->limit(1);
+		return $this->db->get('posts')->row_array();
+	}
+
+	public function get_prev_post($slug) {
+		$this->db->where('id <', $this->get_post($slug)->id);
+		$this->db->order_by('id', 'desc'); 
+		$this->db->limit(1);
+		return $this->db->get('posts')->row_array();
+	}
+
 	public function slug_count($slug, $id){
     $this->db->select('count(*) as slugcount');
     $this->db->from('posts');
