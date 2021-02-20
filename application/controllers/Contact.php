@@ -25,9 +25,10 @@ class Contact extends CI_Controller {
 		$this->form_validation->set_rules('message', 'Message', 'required');
 		$this->form_validation->set_error_delimiters('<p class="form-error">', '</p>');
 
+		$this->displayForm();
+
 		if($this->form_validation->run() === FALSE) {
 			$data['errors'] = validation_errors();
-			$this->displayForm();
 		} else {
 			//Prepare mail
 			$this->subject = "Website Contact Form: " . $this->input->post('subject');
@@ -40,7 +41,6 @@ class Contact extends CI_Controller {
 
 			//Send mail
 			$this->send_mail();
-			$this->displayForm();
 		}		
 	}
 
