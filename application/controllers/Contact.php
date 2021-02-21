@@ -9,7 +9,7 @@ class Contact extends CI_Controller {
 
 	private $headers = array();
 	private $from = 'noreply@yourdomain.com';
-	private $to = 'razvan_zamfir80@yahoo.com'; 
+	private $to = 'youremail@somedomain.com'; 
 	private $email_address = '';
 	private $name = '';
 	private $original_subject = '';
