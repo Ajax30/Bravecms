@@ -11,6 +11,8 @@
     submitHandler: function(form) {
       var form = $("#ajaxForm"),
       $fields = form.find('input[type="text"],input[type="email"],textarea'),
+      $successClass = form.data('successclass'),
+      $failClass = form.data('failclass'),
       $succesMsg = form.data('successmsg'),
       $failMsg = form.data('failmsg'),
       url = form.attr('action'),
@@ -24,7 +26,7 @@
           $fields.val('');
         },
         error: function() {
-          $('#msgContainer').removeClass('alert-success').addClass('alert-danger')
+          $('#msgContainer').removeClass($successClass).addClass($failClass)
                             .text($failMsg).slideDown(250).delay(2500).slideUp(250);
         }
       });

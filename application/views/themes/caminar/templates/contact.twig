@@ -27,9 +27,11 @@
 			id="ajaxForm"
 				action="{{base_url}}contact"
 					method="post"
-						data-successmsg="Your message was sent. We will reply as soon as possible." 
+						data-successclass="alert-success"
+						data-failclass="alert-danger"
+							data-successmsg="Your message was sent. We will reply as soon as possible." 
 							data-failmsg="Sorry, we could not deliver your message"
-								novalidate>
+									novalidate>
 								<div class="row uniform">	
 									<div class="form-controll 12u$">
 										<input type="text" class="form-control px-1 {{ form_error('name') ? 'error' }}" placeholder="Name" name="name" id="name" value="{{set_value('name') | striptags}}" data-rule-required="true">

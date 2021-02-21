@@ -7,10 +7,12 @@ class Contact extends CI_Controller {
 		parent::__construct();
 	}
 
-	private $headers = "";
-	private $to = 'youremail@somedomain.com'; 
+	private $headers = array();
+	private $from = 'noreply@yourdomain.com';
+	private $to = 'razvan_zamfir80@yahoo.com'; 
 	private $email_address = '';
 	private $name = '';
+	private $original_subject = '';
 	private $subject = ''; 
 	private $message = '';
 	private $body = '';
@@ -31,13 +33,14 @@ class Contact extends CI_Controller {
 			$data['errors'] = validation_errors();
 		} else {
 			//Prepare mail
-			$this->subject = "Website Contact Form: " . $this->input->post('subject');
+			$this->headers["From"] = " $this->from\n";
+    	$this->headers["Reply-To"] = ": $this->email_address";
+			$this->original_subject = $this->input->post('subject');
+			$this->subject = "Website Contact Form: " . $this->original_subject;
 			$this->name = $this->input->post('name');
 			$this->email_address = $this->input->post('email');
 			$this->message = $this->input->post('message');
-			$this->body = "You have received a new message from your website contact form. Here are the details:\n\nName: $this->name\n\nEmail: $this->email_address\n\nMessage:\n$this->message";
-			$this->headers = "From: noreply@yourdomain.com\n";
-			$this->headers .= "Reply-To: $this->email_address"; 
+			$this->body = "You have received a new message from your website contact form. Here are the details:\n\nName: $this->name\n\nEmail: $this->email_address\n\nSubject:$this->original_subject\n\nMessage:\n$this->message";
 
 			//Send mail
 			$this->send_mail();
@@ -45,6 +48,7 @@ class Contact extends CI_Controller {
 	}
 
 	public function displayForm() {
+
     $data = $this->Static_model->get_static_data();
 		$data['base_url'] = base_url("/");
 		$data['pages'] = $this->Pages_model->get_pages();
@@ -60,7 +64,28 @@ class Contact extends CI_Controller {
 	
 	//mail sender method
 	public function send_mail() {
-		if (mail($this->to, $this->subject, $this->body, $this->headers)) {
+			$config['protocol'] = 'sendmail';
+			$config['charset'] = 'utf-8';
+			$config['mailtype'] = 'html';
+
+		
+    	if(!$this->load->is_loaded('email')){
+				$this->load->library('email', $config);
+			} else {
+				$this->email->initialize($config);
+			}
+
+			// set haders
+			foreach($this->headers as $key => $value){
+				$this->email->set_header($key, $value);
+			}
+		
+		$this->email->from($this->from);
+    $this->email->to($this->to);
+    $this->email->subject($this->subject);
+    $this->email->message($this->body);
+
+		if ($this->email->send()) {
 			$this->message_success = true;
 		} else {
 			$this->message_fail = true;
