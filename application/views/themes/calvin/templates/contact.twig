@@ -22,20 +22,20 @@
 													{% endif %}
 
 													{% if message_success == true %}
-														<div class="alert-box alert-box--success text-center">
+														<div class=" h-text-center alert-box alert-box--success">
 															<span class="alert-box__close"></span>
 															Your message was sent. We will reply as soon as possible.
 														</div>
 													{% endif %}
 
 													{% if message_fail == true %}
-														<div class="alert-box alert-box--error">
+														<div class="h-text-center alert-box alert-box--error">
 															<span class="alert-box__close"></span>
 															Sorry, we could not deliver your message
 														</div>
 													{% endif %}
 
-													<div id="msgContainer" class="is-hidden text-center alert-box alert-box--success"></div>
+													<div id="msgContainer" class="is-hidden h-text-center alert-box alert-box--success"></div>
 
 													<form name="contactForm" id="ajaxForm" class="s-content__form"
 															action="{{base_url}}contact"

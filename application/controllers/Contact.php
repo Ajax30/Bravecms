@@ -33,7 +33,7 @@ class Contact extends CI_Controller {
 			$data['errors'] = validation_errors();
 		} else {
 			//Prepare mail
-			$this->headers["From"] = " $this->from\n";
+			$this->headers["From"] = "$this->from\n";
     	$this->headers["Reply-To"] = ": $this->email_address";
 			$this->original_subject = $this->input->post('subject');
 			$this->subject = "Website Contact Form: " . $this->original_subject;
