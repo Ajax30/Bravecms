@@ -18,7 +18,11 @@
 
             <div class="form-group">
               <input type="submit" value="Login" class="btn btn-block btn-md btn-success">
-            </div>            
+            </div> 
+
+            <div class="form-group text-center">
+              Forgot password? <a href="<?php echo base_url('passwordreset')?>" class="text-link">Reset it</a>
+            </div>             
             <?php echo form_close(); ?>
           </div>
         </div>

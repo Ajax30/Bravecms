@@ -43,6 +43,12 @@ class Migration_Create_Authors extends CI_Migration
         'constraint' => 255,
       ),
 
+      'token'=>array(
+        'type'=>'VARCHAR',
+        'constraint' => 255,
+        'null' => TRUE,
+      ),
+
       'active'=>array(
         'type'=>'TINYINT',
         'constraint' => 1,
