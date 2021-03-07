@@ -9,7 +9,7 @@ class Contact extends CI_Controller {
 
 	private $headers = array();
 	private $from = 'noreply@yourdomain.com';
-	private $to = 'youremail@somedomain.com'; 
+	private $to = 'contact@yourdomain.com'; 
 	private $email_address = '';
 	private $name = '';
 	private $original_subject = '';
@@ -40,7 +40,7 @@ class Contact extends CI_Controller {
 			$this->name = $this->input->post('name');
 			$this->email_address = $this->input->post('email');
 			$this->message = $this->input->post('message');
-			$this->body = "You have received a new message from your website contact form. Here are the details:\n\nName: $this->name\n\nEmail: $this->email_address\n\nSubject:$this->original_subject\n\nMessage:\n$this->message";
+			$this->body = "You have received a new message from your website contact form. Here are the details\r\nName: $this->name\r\nEmail: $this->email_address\r\nSubject:$this->original_subject\r\nMessage:\n$this->message";
 
 			//Send mail
 			$this->send_mail();
@@ -64,15 +64,22 @@ class Contact extends CI_Controller {
 	
 	//mail sender method
 	public function send_mail() {
-			$config['protocol'] = 'sendmail';
-			$config['charset'] = 'utf-8';
+			// Email settings
+			$config = array();
+			$config['protocol'] = 'smtp';
+			$config['smtp_host'] = 'smtp.yourdomain.com';
+			$config['smtp_user'] = 'contact@yourdomain.com';
+			$config['smtp_pass'] = '******';
+			$config['smtp_port'] = 25;
+			$config['charset']  = 'utf-8';
 			$config['mailtype'] = 'html';
+			$config['newline']   = "\r\n";  
 
 		
-    	if(!$this->load->is_loaded('email')){
-				$this->load->library('email', $config);
+			if (!$this->load->is_loaded('email')) {
+					$this->load->library('email', $config);
 			} else {
-				$this->email->initialize($config);
+					$this->email->initialize($config);
 			}
 
 			// set haders
