@@ -72,16 +72,16 @@ class Passwordreset extends CI_Controller
     
     public function sendResetMail()
     {
-       // Email settings
-			 $config = array();
-			 $config['protocol'] = 'smtp';
-			 $config['smtp_host'] = 'smtp.yourdomain.com';
-			 $config['smtp_user'] = 'noreply@yourdomain.com';
-			 $config['smtp_pass'] = '******';
-			 $config['smtp_port'] = 25;
-			 $config['charset']  = 'utf-8';
-			 $config['mailtype'] = 'html';
-			 $config['newline']   = "\r\n"; 
+        // Email settings
+        $config              = array();
+        $config['protocol']  = 'smtp';
+        $config['smtp_host'] = 'smtp.yourdomain.com';
+        $config['smtp_user'] = 'noreply@yourdomain.com';
+        $config['smtp_pass'] = '******';
+        $config['smtp_port'] = 25;
+        $config['charset']   = 'utf-8';
+        $config['mailtype']  = 'html';
+        $config['newline']   = "\r\n";
         
         if (!$this->load->is_loaded('email')) {
             $this->load->library('email', $config);
