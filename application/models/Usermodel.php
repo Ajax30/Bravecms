@@ -67,6 +67,7 @@ class Usermodel extends CI_Model {
 			'last_name' => $this->input->post('last_name'),
 			'email' => $this->input->post('email'),
 			'password' => $enc_password,
+			'token' => NULL,
 			'register_date' => date('Y-m-d H:i:s'),
 			'active' => $active,
 			'is_admin' => $is_admin
@@ -98,6 +99,20 @@ class Usermodel extends CI_Model {
 			$query = $this->db->get_where('authors', ['email' => $email, 'password' => $pass_hash]);
 			return $query->row();
 		}
+	}
+
+	public function update_token($user_email, $token) {
+		return $this->db
+			->where('email', $user_email)
+			// insert token (make it diffrent from NULL)
+			->update('authors', array('token' => $token));
+	}
+
+	public function set_new_password($token, $enc_password) {
+		return $this->db
+			->where('token', $token)
+			// set new password and reset token to NULL
+			->update('authors', array('password' => $enc_password, 'token' => NULL));
 	}
 	
 }
