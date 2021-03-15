@@ -15,6 +15,7 @@ $route['dashboard/create-page'] = 'dashboard/pages/create';
 $route['dashboard/create-category'] = 'dashboard/categories/create';
 $route['dashboard/manage-authors'] = 'dashboard/users';
 $route['404_override'] = '';
+$route['newsletter/subscribe'] = 'newsletter/subscribe';
 $route['contact'] = 'contact';
 $route['categories/posts/(:any)'] = 'categories/posts/$1';
 $route['(:any)'] = 'posts/post/$1';
