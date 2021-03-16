@@ -15,4 +15,13 @@ class Newsletter_model extends CI_Model {
 		];
 		return $this->db->insert('newsletter', $data);
 	}
+
+	public function getSubscribers(){
+		$query = $this->db->get('newsletter');
+		return $query->result();
+	}
+
+	public function deleteSubscriber($id) {
+		return $this->db->delete('newsletter', array('id' => $id));
+	}
 }

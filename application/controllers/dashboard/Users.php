@@ -125,7 +125,6 @@ class Users extends CI_Controller {
 	}
 
 	public function delete($id) {
-		$this->load->model('Usermodel');
 		if ($this->Usermodel->deleteAuthor($id)) {
 			$this->session->set_flashdata('author_delete', "The author was deleted");
 		} else {
@@ -135,19 +134,16 @@ class Users extends CI_Controller {
 	}
 
 	public function activate($id) {
-		$this->load->model('Usermodel');
 		$author = $this->Usermodel->activateAuthor($id);
 		redirect($this->agent->referrer());
 	}
 
 	public function deactivate($id) {
-		$this->load->model('Usermodel');
 		$author = $this->Usermodel->deactivateAuthor($id);
 		redirect($this->agent->referrer());
 	}
 
 	public function deleteavatar($id) {
-		$this->load->model('Usermodel');
 		$this->Usermodel->deleteAvatar($id);
 		$this->session->set_userdata('user_avatar', $avatar);
 		redirect($this->agent->referrer());

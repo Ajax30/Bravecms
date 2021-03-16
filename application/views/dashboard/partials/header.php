@@ -71,6 +71,11 @@
 												<i class="fa fa-file-text mr-2"></i> Add page
 											</a>
 										<?php endif; ?>
+										<?php if($this->session->userdata('user_is_admin')) : ?>
+											<a class="dropdown-item text-secondary" href="<?php echo base_url('dashboard/subscribers') ?>">
+												<i class="fa fa-envelope mr-2"></i> Newsletter subscribers
+											</a>
+										<?php endif; ?>
 									</div>
 								</li>
 								<li class="nav-item my-1">
