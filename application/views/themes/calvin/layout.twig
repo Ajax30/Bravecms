@@ -161,23 +161,11 @@
                     </ul>
                 </div><!-- end s-footer__social links --> 
 
-                <div class="column large-3 medium-6 tab-12 s-footer__subscribe">
-                    <h5>Sign Up for Newsletter</h5>
-                    <p>Signup to get updates on articles, interviews and events.</p>
-                    <div class="subscribe-form">
-												<div id="messags" class="is-hidden h-text-center">
-													 <div class="success is-hidden alert-box alert-box--success">You have successfully subscribed to our newsletter</div>
-													 <div class="notnew is-hidden alert-box alert-box--info">You are already subscribed</div>
-													 <div class="fail is-hidden alert-box alert-box--error">Sorry, the newsletter subscription filed</div>
-												</div>
-                        <form name="newsletter" method="post" action="{{base_url}}newsletter/subscribe" id="newsletterForm" class="group" novalidate>
-													<input type="email" name="email" class="email" value="{{set_value('email') | striptags}}" data-rule-required="true" placeholder="Your Email Address"> 
-													<input type="submit" name="subscribe" value="subscribe">
-                        </form>
-                    </div>
-                </div> <!-- end s-footer__subscribe -->
-            </div> <!-- end row -->
-        </div> <!-- end s-footer__main -->
+									{% if is_newsletter == true %} 
+										{{ include('themes/' ~ theme_directory ~ '/partials/newsletter.twig') }}
+									{% endif %}                
+            </div><!-- end row -->
+        </div><!-- end s-footer__main -->
 
         <div class="s-footer__bottom">
             <div class="row">
@@ -206,7 +194,10 @@
     <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
 		<script src="{{base_url}}/assets/js/jquery.validate.min.js"></script>
 		<script src="{{base_url}}/assets/js/ajaxform.js"></script>
-		<script src="{{base_url}}/assets/js/newsletter.js"></script>
+		{% if is_newsletter == true %} 
+			<script src="{{base_url}}/assets/js/newsletter.js"></script>
+		{% endif %}
+
 		{% if is_cookieconsent == true %} 
     <script>
         window.cookieconsent.initialise({
