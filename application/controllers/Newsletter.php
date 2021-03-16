@@ -9,7 +9,7 @@ class Newsletter extends CI_Controller {
   public function subscribe(){
     $data['is_new_subscriber'] = true;
     if (!$this->Newsletter_model->subscriber_exists()) {
-      $this->Newsletter_model->add_subscriber();
+      $this->Newsletter_model->addSubscriber();
     } else {
       $data['is_new_subscriber'] = false;
     }

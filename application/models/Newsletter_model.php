@@ -8,7 +8,7 @@ class Newsletter_model extends CI_Model {
 		return $query->num_rows() > 0;
 	}
 
-	public function add_subscriber() {
+	public function addSubscriber() {
 		$data = [
 			'email' => $this->input->post('email'),
 			'subscription_date' => date('Y-m-d H:i:s')
