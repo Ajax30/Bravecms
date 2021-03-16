@@ -4,7 +4,7 @@
       <div class="row">
         <div class="card bg-light w-100">
           <div class="card-header d-flex p-2">
-            <h6 class="text-dark m-0 align-self-center">Newsletter subscribers</h6>
+            <h6 class="text-dark m-0 align-self-center">Newsletter list</h6>
             <a class="btn btn-sm btn-success ml-auto" href="<?php echo base_url('dashboard/subscribers/export') ?>"><i class="fa fa-file mr-1"></i> Export CSV</a>
           </div>
           <div class="card-body bg-white p-0">

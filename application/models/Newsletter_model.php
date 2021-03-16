@@ -21,6 +21,22 @@ class Newsletter_model extends CI_Model {
 		return $query->result();
 	}
 
+	public function editSubscriber($id){
+		$query = $this->db->get_where('newsletter', array('id' => $id));
+		if ($query->num_rows() > 0) {
+			return $query->row();
+		}
+	}
+
+	public function updateSubscriber($id) {
+		$data = [
+			'email' => $this->input->post('email')
+		];
+
+		$this->db->where('id', $id);
+		return $this->db->update('newsletter', $data);
+	}
+
 	public function deleteSubscriber($id) {
 		return $this->db->delete('newsletter', array('id' => $id));
 	}

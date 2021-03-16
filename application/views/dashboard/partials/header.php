@@ -180,6 +180,18 @@
 						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('author_delete') . '</p>'; ?>
 					<?php endif; ?>
 
+					<?php if($this->session->flashdata('subscriber_delete_success')): ?>
+						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('subscriber_delete_success') . '</p>'; ?>
+					<?php endif; ?>
+
+					<?php if($this->session->flashdata('subscriber_delete_fail')): ?>
+						<?php echo '<p class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $this->session->flashdata('subscriber_delete_fail') . '</p>'; ?>
+					<?php endif; ?>
+
+					<?php if($this->session->flashdata('subscriber_updated')): ?>
+						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('subscriber_updated') . '</p>'; ?>
+					<?php endif; ?>
+
 					<?php if($this->session->flashdata('reset_mail_confirm')): ?>
 							<?php echo '<p class="alert alert-success col-sm-10 col-md-8 col-lg-6 mx-auto">' . $this->session->flashdata('reset_mail_confirm') . '</p>'; ?>
 					<?php endif; ?>
