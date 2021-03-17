@@ -83,6 +83,15 @@ $(document).ready(function() {
     }
   });
 
+   //Delete Subscriber
+   $('.delete-subscriber').on('click', function(evt){
+    evt.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    if(confirm('Delete this subscriber?')) {
+      window.location.href = deleteUrl;
+    }
+  });
+
   //Delete Avatar
   $('#delete-avatar').on('click', function(evt){
     evt.preventDefault();

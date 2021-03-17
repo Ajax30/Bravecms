@@ -71,6 +71,11 @@
 												<i class="fa fa-file-text mr-2"></i> Add page
 											</a>
 										<?php endif; ?>
+										<?php if($this->session->userdata('user_is_admin')) : ?>
+											<a class="dropdown-item text-secondary" href="<?php echo base_url('dashboard/subscribers') ?>">
+												<i class="fa fa-envelope mr-2"></i> Newsletter subscribers
+											</a>
+										<?php endif; ?>
 									</div>
 								</li>
 								<li class="nav-item my-1">
@@ -173,6 +178,18 @@
 
 					<?php if($this->session->flashdata('author_delete')): ?>
 						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('author_delete') . '</p>'; ?>
+					<?php endif; ?>
+
+					<?php if($this->session->flashdata('subscriber_delete_success')): ?>
+						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('subscriber_delete_success') . '</p>'; ?>
+					<?php endif; ?>
+
+					<?php if($this->session->flashdata('subscriber_delete_fail')): ?>
+						<?php echo '<p class="alert alert-danger alert-dismissible"><button type="button" class="close" data-dismiss="alert">&times;</button>' . $this->session->flashdata('subscriber_delete_fail') . '</p>'; ?>
+					<?php endif; ?>
+
+					<?php if($this->session->flashdata('subscriber_updated')): ?>
+						<?php echo '<p class="alert alert-success">' . $this->session->flashdata('subscriber_updated') . '</p>'; ?>
 					<?php endif; ?>
 
 					<?php if($this->session->flashdata('reset_mail_confirm')): ?>

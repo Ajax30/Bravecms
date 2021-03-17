@@ -16,6 +16,7 @@ class Static_model extends CI_Model {
 		$data['theme_directory'] = "calvin";
 		$data['is_frontend'] = false;
 		$data['is_ckeditor'] = false;
+		$data['is_newsletter'] = true;
 		$data['is_cookieconsent'] = true;
 		return $data;
 	}

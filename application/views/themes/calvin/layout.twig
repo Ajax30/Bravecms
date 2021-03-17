@@ -161,28 +161,11 @@
                     </ul>
                 </div><!-- end s-footer__social links --> 
 
-                <div class="column large-3 medium-6 tab-12 s-footer__subscribe">
-                    <h5>Sign Up for Newsletter</h5>
-                    <p>Signup to get updates on articles, interviews and events.</p>
-                    <div class="subscribe-form">
-                
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="Your Email Address" required=""> 
-                
-                            <input type="submit" name="subscribe" value="subscribe" >
-                
-                            <label for="mc-email" class="subscribe-message"></label>
-                
-                        </form>
-
-                    </div>
-
-                </div> <!-- end s-footer__subscribe -->
-
-            </div> <!-- end row -->
-
-        </div> <!-- end s-footer__main -->
+									{% if is_newsletter == true %} 
+										{{ include('themes/' ~ theme_directory ~ '/partials/newsletter.twig') }}
+									{% endif %}                
+            </div><!-- end row -->
+        </div><!-- end s-footer__main -->
 
         <div class="s-footer__bottom">
             <div class="row">
@@ -211,6 +194,10 @@
     <script src="{{base_url}}themes/{{theme_directory}}/assets/js/main.js"></script>
 		<script src="{{base_url}}/assets/js/jquery.validate.min.js"></script>
 		<script src="{{base_url}}/assets/js/ajaxform.js"></script>
+		{% if is_newsletter == true %} 
+			<script src="{{base_url}}/assets/js/newsletter.js"></script>
+		{% endif %}
+
 		{% if is_cookieconsent == true %} 
     <script>
         window.cookieconsent.initialise({
@@ -241,7 +228,5 @@
       });
     </script>
   	{% endif %}
-
 </body>
-
 </html>
