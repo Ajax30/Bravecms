@@ -35,9 +35,12 @@
                     <?php endforeach ?>
                   </tbody>
                 </table>
+              </div>
+              <div class="card-footer bg-white py-0">
+                <?php $this->load->view("dashboard/partials/pagination");?>
               </div>              
               <?php else: ?>
-                <p class="text-center">No subscribers</p>
+                <p class="text-center my-2">No subscribers</p>
               <?php endif ?>
             </div>
           </div>
