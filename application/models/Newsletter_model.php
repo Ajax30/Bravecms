@@ -8,6 +8,11 @@ class Newsletter_model extends CI_Model {
 		return $query->num_rows() > 0;
 	}
 
+	public function get_num_rows() {
+		$query = $this->db->get('newsletter');
+		return $query->num_rows(); 
+	}
+
 	public function addSubscriber() {
 		$data = [
 			'email' => $this->input->post('email'),
@@ -16,7 +21,10 @@ class Newsletter_model extends CI_Model {
 		return $this->db->insert('newsletter', $data);
 	}
 
-	public function getSubscribers(){
+	public function getSubscribers($limit, $offset){
+		$this->db->select('newsletter.*');
+		$this->db->order_by('newsletter.id', 'ASC');
+	  $this->db->limit($limit, $offset);
 		$query = $this->db->get('newsletter');
 		return $query->result();
 	}

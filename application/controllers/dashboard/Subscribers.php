@@ -20,8 +20,21 @@ class Subscribers extends CI_Controller
 				}
 			}
 
+		$this->load->library('pagination');
+		$config['base_url'] = base_url("dashboard/subscribers");
+		$config['query_string_segment'] = 'page';
+		$config['total_rows'] =	$this->Newsletter_model->get_num_rows();
+		$config['per_page'] = 10;
+		
+		if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1){
+			$_GET[$config['query_string_segment']] = 1;
+		}
+		$limit = $config['per_page'];
+		$offset = ($this->input->get($config['query_string_segment']) - 1) * $limit;
+		$this->pagination->initialize($config);
+
 			$data = $this->Static_model->get_static_data();
-			$data['subscribers'] = $this->Newsletter_model->getSubscribers();
+			$data['subscribers'] = $this->Newsletter_model->getSubscribers($limit, $offset);
 
 			$this->load->view('dashboard/partials/header', $data);
 			$this->load->view('dashboard/subscribers');
