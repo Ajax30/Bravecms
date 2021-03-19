@@ -45,6 +45,8 @@ class Posts extends CI_Controller
         $data           = $this->get_data();
         $data['posts']  = $this->Posts_model->get_posts($limit, $offset);
         $data['offset'] = $offset;
+				$data['limit'] = $limit;
+				$data['total_posts'] = $config['total_rows'];
         
         $this->load->view('dashboard/partials/header', $data);
         $this->load->view('dashboard/posts');
