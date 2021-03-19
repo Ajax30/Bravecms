@@ -8,7 +8,7 @@
             <a class="btn btn-sm btn-success ml-auto" href="<?php echo base_url('dashboard/subscribers/export') ?>"><i class="fa fa-file mr-1"></i> Export CSV</a>
           </div>
           <div class="card-body bg-white p-0">
-            <?php if(count($subscribers)):?>
+            <?php if($total_subscribers > 0):?>
               <div class="table-responsive">
                 <table class="table table-striped table-sm mb-0 w-100">
                   <thead>
@@ -36,8 +36,10 @@
                   </tbody>
                 </table>
               </div>
-              <div class="card-footer bg-white py-0">
-                <?php $this->load->view("dashboard/partials/pagination");?>
+              <div class="card-footer bg-white px-0 py-<?php echo $total_subscribers > $limit ? '1' : '0'?>">                      
+                <?php if($total_subscribers > $limit):?>
+                  <?php $this->load->view("dashboard/partials/pagination");?>
+                <?php endif ?>
               </div>              
               <?php else: ?>
                 <p class="text-center my-2">No subscribers</p>
