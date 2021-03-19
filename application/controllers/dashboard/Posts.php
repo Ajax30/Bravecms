@@ -11,14 +11,14 @@ class Posts extends CI_Controller
     
     private function get_data()
     {
-        $data                         = $this->Static_model->get_static_data();
-        $data['pages']                = $this->Pages_model->get_pages();
-        $data['categories']           = $this->Categories_model->get_categories();
-        $data['number_of_pages']      = $this->Pages_model->count_pages();
-        $data['number_of_posts']      = $this->Posts_model->get_num_rows();
-        $data['number_of_categories'] = $this->Categories_model->get_num_rows();
-        $data['number_of_comments']   = $this->Comments_model->get_num_rows();
-        return $data;
+      $data                         = $this->Static_model->get_static_data();
+      $data['pages']                = $this->Pages_model->get_pages();
+      $data['categories']           = $this->Categories_model->get_categories();
+      $data['number_of_pages']      = $this->Pages_model->count_pages();
+      $data['number_of_posts']      = $this->Posts_model->get_num_rows();
+      $data['number_of_categories'] = $this->Categories_model->get_num_rows();
+      $data['number_of_comments']   = $this->Comments_model->get_num_rows();
+      return $data;
     }
     
     public function index()
@@ -42,9 +42,11 @@ class Posts extends CI_Controller
         $offset = ($this->input->get($config['query_string_segment']) - 1) * $limit;
         $this->pagination->initialize($config);
         
-        $data           = $this->get_data();
-        $data['posts']  = $this->Posts_model->get_posts($limit, $offset);
-        $data['offset'] = $offset;
+        $data                = $this->get_data();
+        $data['posts']       = $this->Posts_model->get_posts($limit, $offset);
+        $data['offset']      = $offset;
+        $data['limit']       = $limit;
+        $data['total_posts'] = $config['total_rows'];
         
         $this->load->view('dashboard/partials/header', $data);
         $this->load->view('dashboard/posts');
