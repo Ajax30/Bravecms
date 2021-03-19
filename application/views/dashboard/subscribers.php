@@ -22,7 +22,7 @@
                   <tbody>
                     <?php foreach ($subscribers as $index => $subscriber): ?>
                       <tr id="<?php echo $subscriber->id; ?>" class="row m-0">
-                        <td class="w-5"><?php echo $index + 1; ?></td>
+                        <td class="w-5"><?php $count = $index + 1; echo $count + $offset; ?></td>
                         <td class="w-50"><?php echo $subscriber->email; ?></td>
                         <td class="w-25"><?php echo $subscriber->subscription_date; ?></td>
                         <td class="w-20 text-right">
