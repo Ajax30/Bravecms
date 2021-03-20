@@ -92,12 +92,12 @@ class Posts extends CI_Controller
             $offset = $limit * ($this->input->get($config['query_string_segment']) - 1);
             $this->pagination->initialize($config);
             
-            $data               = $this->get_data();
-            $data['expression'] = $expression;
-            $data['posts']      = $this->Posts_model->search($expression, $limit, $offset);
-            $data['offset']     = $offset;
-            $data['limit']       = $limit;
-            $data['total_posts'] = $config['total_rows'];
+            $data               	= $this->get_data();
+            $data['expression'] 	= $expression;
+            $data['posts']      	= $this->Posts_model->search($expression, $limit, $offset);
+            $data['offset']     	= $offset;
+            $data['limit']       	= $limit;
+            $data['total_posts'] 	= $config['total_rows'];
             
             $this->load->view('dashboard/partials/header', $data);
             $this->load->view('dashboard/posts');
