@@ -96,6 +96,8 @@ class Posts extends CI_Controller
             $data['expression'] = $expression;
             $data['posts']      = $this->Posts_model->search($expression, $limit, $offset);
             $data['offset']     = $offset;
+            $data['limit']       = $limit;
+            $data['total_posts'] = $config['total_rows'];
             
             $this->load->view('dashboard/partials/header', $data);
             $this->load->view('dashboard/posts');
@@ -305,7 +307,6 @@ class Posts extends CI_Controller
     
     public function deleteimage($id)
     {
-        $this->load->model('Posts_model');
         $this->Posts_model->delete_post_image($id);
         redirect($this->agent->referrer());
     }
