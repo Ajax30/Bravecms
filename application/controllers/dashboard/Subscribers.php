@@ -107,11 +107,11 @@ class Subscribers extends CI_Controller
         header("Content-Type: application/csv;");
         
         // CSV creation 
-        $file = fopen('php://output', 'w');
+        $file = fopen(BASEPATH . '../downloads/csv/' . $file_name, 'w');
         $header = array("Email", "Subscription Date");
         fputcsv($file, $header);
         foreach ($subscribers as $subscriber) {
-            fputcsv($file, $subscriber);
+            fputcsv($file, array($subscriber->email, $subscriber->subscription_date));
         }
         fclose($file);
         redirect('dashboard/subscribers');
