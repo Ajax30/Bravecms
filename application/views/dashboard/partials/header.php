@@ -15,7 +15,7 @@
 <body>
 	<div class="site-wrapper">
 		<nav class="navbar sticky-top navbar-dark bg-dark flex-wrap2 flex-md-nowrap p-0 py-md-1">
-			<a class="navbar-brand col-auto mr-0 px-2 pl-md-1" href="<?php echo base_url('/dashboard'); ?>">Dashboard</a>
+		<a class="navbar-brand col-auto mr-0 px-2 pl-md-1" href="<?php echo base_url('/dashboard'); ?>"><img src="<?php echo base_url('assets/img/logo.png'); ?>" alt="Brave CMS"></a>
 			<button class="navbar-toggler d-md-none mt-1 mr-2" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
