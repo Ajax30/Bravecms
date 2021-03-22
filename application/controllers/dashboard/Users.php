@@ -20,8 +20,6 @@ class Users extends CI_Controller {
 		}
 
 		$data = $this->Static_model->get_static_data();
-		$data['pages'] = $this->Pages_model->get_pages();
-		$data['categories'] = $this->Categories_model->get_categories();
 		$data['authors'] = $this->Usermodel->getAuthors();
 
 		$this->load->view('dashboard/partials/header', $data);
@@ -37,8 +35,6 @@ class Users extends CI_Controller {
 		}
 
 		$data = $this->Static_model->get_static_data();
-		$data['pages'] = $this->Pages_model->get_pages();
-		$data['categories'] = $this->Categories_model->get_categories();
 		$data['author'] = $this->Usermodel->editAuthor($id);
 
 		$this->load->view('dashboard/partials/header', $data);
@@ -77,8 +73,6 @@ class Users extends CI_Controller {
 		$id = $this->input->post('id');
 
 		$data = $this->Static_model->get_static_data();
-		$data['pages'] = $this->Pages_model->get_pages();
-		$data['categories'] = $this->Categories_model->get_categories();
 		$data['author'] = $this->Usermodel->editAuthor($id);
 
 		$this->form_validation->set_rules('first_name', 'First name', 'required');
