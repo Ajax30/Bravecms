@@ -48,4 +48,13 @@ class Newsletter_model extends CI_Model {
 	public function deleteSubscriber($id) {
 		return $this->db->delete('newsletter', array('id' => $id));
 	}
+
+	// Expot subscribers
+	public function fetchSubscribers() {
+		$this->db->select('email, subscription_date');
+		$this->db->order_by('newsletter.id', 'DESC');
+		$query = $this->db->get('newsletter');
+		return $query->result();
+ 	}
+
 }

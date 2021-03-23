@@ -5,7 +5,9 @@
         <div class="card bg-light w-100">
           <div class="card-header d-flex p-2">
             <h6 class="text-dark m-0 align-self-center">Newsletter list</h6>
-            <a class="btn btn-sm btn-success ml-auto" href="<?php echo base_url('dashboard/subscribers/export') ?>"><i class="fa fa-file mr-1"></i> Export CSV</a>
+            <?php echo form_open(base_url('dashboard/subscribers/export'),  ['class' => 'ml-auto']); ?>
+              <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-file mr-1"></i> Export CSV</button>
+            <?php echo form_close(); ?>
           </div>
           <div class="card-body bg-white p-0">
             <?php if($total_subscribers > 0):?>
