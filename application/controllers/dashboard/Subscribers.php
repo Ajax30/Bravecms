@@ -89,7 +89,6 @@ class Subscribers extends CI_Controller
     
     public function delete($id)
     {
-        
         // Only admins can delete subscribers
         if ($this->session->userdata('user_is_admin')) {
             
@@ -109,7 +108,6 @@ class Subscribers extends CI_Controller
     
     public function export()
     {
-        
         if (!$this->session->userdata('is_logged_in')) {
             redirect('login');
         } else {
