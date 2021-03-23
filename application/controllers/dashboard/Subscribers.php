@@ -16,7 +16,8 @@ class Subscribers extends CI_Controller
         } else {
             // Admin ONLY area!
             if (!$this->session->userdata('user_is_admin')) {
-                redirect($this->agent->referrer());
+                $this->session->set_flashdata('admin_only_pages', 'Only admin manage subscribers');
+                redirect('dashboard');
             }
         }
         
