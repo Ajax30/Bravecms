@@ -10,13 +10,12 @@ class Subscribers extends CI_Controller
     
     public function index()
     {
-        
         if (!$this->session->userdata('is_logged_in')) {
             redirect('login');
         } else {
             // Admin ONLY area!
             if (!$this->session->userdata('user_is_admin')) {
-                $this->session->set_flashdata('admin_only_pages', 'Only admin manage subscribers');
+                $this->session->set_flashdata('admin_only_pages', 'Only admins are allowed to manage subscribers');
                 redirect('dashboard');
             }
         }
@@ -48,9 +47,10 @@ class Subscribers extends CI_Controller
     
     public function edit($id)
     {
-        // Only logged in users can edit subscribers
-        if (!$this->session->userdata('is_logged_in')) {
-            redirect('login');
+        // Admin ONLY area!
+        if (!$this->session->userdata('user_is_admin')) {
+            $this->session->set_flashdata('admin_only_pages', 'Only admins are allowed to edit subscribers');
+            redirect('dashboard');
         }
         
         $data               = $this->Static_model->get_static_data();
@@ -63,7 +63,7 @@ class Subscribers extends CI_Controller
     
     public function update()
     {
-        // Only logged in users can update user profiles
+        // Only logged in users can update subscribers
         if (!$this->session->userdata('is_logged_in')) {
             redirect('login');
         }
@@ -89,16 +89,37 @@ class Subscribers extends CI_Controller
     
     public function delete($id)
     {
-        if ($this->Newsletter_model->deleteSubscriber($id)) {
-            $this->session->set_flashdata('subscriber_delete_success', "The subscriber was deleted");
+        
+        // Only admins can delete subscribers
+        if ($this->session->userdata('user_is_admin')) {
+            
+            // Do delete
+            if ($this->Newsletter_model->deleteSubscriber($id)) {
+                $this->session->set_flashdata('subscriber_delete_success', "The subscriber was deleted");
+            } else {
+                $this->session->set_flashdata('subscriber_delete_fail', "Failed to delete subscriber");
+            }
+            redirect('dashboard/subscribers');
+            
         } else {
-            $this->session->set_flashdata('subscriber_delete_fail', "Failed to delete subscriber");
+            $this->session->set_flashdata('admin_only_pages', 'Only admins are allowed to delete subscribers');
+            redirect('dashboard');
         }
-        redirect('dashboard/subscribers');
     }
     
     public function export()
     {
+        
+        if (!$this->session->userdata('is_logged_in')) {
+            redirect('login');
+        } else {
+            // Admin ONLY area!
+            if (!$this->session->userdata('user_is_admin')) {
+                $this->session->set_flashdata('admin_only_pages', 'Only admins are allowed to export subscribers');
+                redirect('dashboard');
+            }
+        }
+        
         $data        = $this->Static_model->get_static_data();
         $subscribers = $this->Newsletter_model->fetchSubscribers();
         
@@ -108,11 +129,17 @@ class Subscribers extends CI_Controller
         header("Content-Type: application/csv;");
         
         // CSV creation 
-        $file = fopen(BASEPATH . '../downloads/csv/' . $file_name, 'w');
-        $header = array("Email", "Subscription Date");
+        $file   = fopen(BASEPATH . '../downloads/csv/' . $file_name, 'w');
+        $header = array(
+            "Email",
+            "Subscription Date"
+        );
         fputcsv($file, $header);
         foreach ($subscribers as $subscriber) {
-            fputcsv($file, array($subscriber->email, $subscriber->subscription_date));
+            fputcsv($file, array(
+                $subscriber->email,
+                $subscriber->subscription_date
+            ));
         }
         fclose($file);
         redirect('dashboard/subscribers');
