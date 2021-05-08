@@ -20,30 +20,17 @@
 						{% if posts_count > 0 %}		
 							We found {{posts_count}} {{ posts_count == 1 ? "post" : "posts" }} by {{posts_author.first_name}} {{posts_author.last_name}}:
 						{% else %}
-							<span class="d-block">No posts by {{posts_author.first_name}} {{posts_author.last_name}} ware found.</span>
+							<span class="d-block">There are no posts published by {{posts_author.first_name}} {{posts_author.last_name}} yet.</span>
 							<span class="d-block">See the most <a href="{{base_url}}">recent posts</a>.</span>
 						{% endif %}
 					</p>
-				{% else %}
-					{% if posts %}
-						{% for post in posts %}
-							<div class="post-preview">
-								<a href="{{base_url}}{{post.slug}}">
-									<h2 class="post-title">{{post.title}}</h2>
-									<h3 class="post-subtitle">{{post.description}}</h3>
-								</a>
-								<p class="post-meta">
-									Posted {% if category_name is null %}in <a href="{{base_url}}categories/posts/{{post.cat_id}}" title="All posts in {{post.post_category}}">{{post.post_category}}</a>,{% endif %} on {{post.created_at | date("M d, Y")}}
-								</p>
-							</div>
-							{% if not loop.last %}<hr>{% endif %}
-						{% endfor %}
-					{% else %}
-						<p class="mt-0 text-muted text-center">There are no posts {% if category_name is defined %} in this category {% endif %} yet.</p>
-					{% endif %}	
 				{% endif %}
 				
-        {% if posts %}
+				{# Display the posts list #}
+				{{ include('themes/' ~ theme_directory ~ '/partials/posts-lists.twig') }}
+				
+        {# Display posts pagination/pager #}
+				{% if posts %}
         	<div class="clearfix">{{ pagination|raw }}</div>
 				{% endif %}
       </div>
