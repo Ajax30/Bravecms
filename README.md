@@ -131,7 +131,7 @@ Let me know if this small guide is comprehensive enough.
 
 MIT License
 
-Copyright (c) 2020 Razvan Zamfir
+Copyright (c) 2020 - 2021 Razvan Zamfir
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
