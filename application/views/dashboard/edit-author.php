@@ -2,7 +2,7 @@
   <main class="content">
     <div class="col-sm-10 col-md-8 col-lg-6 mx-auto my-4 px-1">
         <div class="card bg-light">
-          <div class="card-header bg-light">Edit your account information</div>
+          <div class="card-header bg-light">Edit account information</div>
           <div class="card-body">
             <?php echo form_open_multipart(base_url('dashboard/users/update')); ?>
 
