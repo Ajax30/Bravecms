@@ -34,10 +34,8 @@ class Posts extends CI_Controller
     
     public function index()
     {
-        
         //call initialization method
         $config = $this->_initPagination("/", $this->Posts_model->get_num_rows());
-        
         $data                  = $this->Static_model->get_static_data();
         $data['base_url']      = base_url("/");
         $data['pages']         = $this->Pages_model->get_pages();
