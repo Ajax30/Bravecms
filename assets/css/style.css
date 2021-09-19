@@ -19,6 +19,11 @@ body {
   box-shadow: none;
 }
 
+.form-group.remember-me {
+  margin-top: -5px;
+  margin-bottom: 17px;
+}
+
 .w-5 {
   width: 5% !important;
 }

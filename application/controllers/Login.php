@@ -44,10 +44,20 @@ class Login extends CI_Controller {
             'is_logged_in' => TRUE
             )
            );
+
+           // Remember me
+           if (!empty($this->input->post('remember_me'))) {
+            setcookie ('userEmail', $email, time() + (7 * 24 * 3600));  
+            setcookie ('userPassword', $password,  time() + (7 * 24 * 3600));
+           } else {
+            setcookie ('userEmail', ''); 
+            setcookie ('userPassword','');
+          }
+           
           // After login, display flash message
           $this->session->set_flashdata('user_signin', 'You have signed in');
           //and redirect to the posts page
-          redirect('/dashboard');  
+          redirect('/dashboard');
         } else {
           // If the user found is NOT active
           $this->session->set_flashdata("login_failure_activation", "Your account has not been activated yet.");

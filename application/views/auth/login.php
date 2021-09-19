@@ -7,13 +7,18 @@
             <?php echo form_open(base_url('login/login')); ?>
 
             <div class="form-group <?php if(form_error('email')) echo 'has-error';?>">
-              <input type="text" name="email" id="email" class="form-control" placeholder="Email">
+              <input type="text" name="email" id="email" value="<?php if(isset($_COOKIE['userEmail'])) { echo $_COOKIE['userEmail']; } ?>" class="form-control" placeholder="Email">
               <?php if(form_error('email')) echo form_error('email'); ?> 
             </div>
 
             <div class="form-group <?php if(form_error('password')) echo 'has-error';?>">
-              <input type="password" name="password" id="password" class="form-control" placeholder="Password">
+              <input type="password" name="password" id="password" value="<?php if(isset($_COOKIE['userPassword'])) { echo $_COOKIE['userPassword']; } ?>" class="form-control" placeholder="Password"> 
               <?php if(form_error('password')) echo form_error('password'); ?> 
+            </div>
+
+            <div class="form-group remember-me">
+              <input type="checkbox" name="remember_me" value="true" id="remember_me">
+              <span class="text text-muted">Remember me</span>
             </div>
 
             <div class="form-group">
