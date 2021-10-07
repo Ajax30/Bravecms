@@ -411,13 +411,56 @@ footer .copyright {
 }
 
 .pagination {
-  justify-content: center;
+  justify-content: space-between;
 }
 
-.pagination li a,
-.pagination li span {
-  padding: 5px;
+.pagination li {
+  display: inline-block;
+}
+
+.pagination li a {
   text-decoration: none;
+  position: relative;
+}
+
+.pagination li a::before {
+  display: inline-block;
+  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background-color: #0085a1;
+  border: 1px solid #006d83;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 800;
+  padding: 15px 25px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.pagination li a::after {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.pagination li:first-child a::before {
+  content: 'Newer Posts';
+  padding-left: 35px;
+}
+
+.pagination li:last-child a::before {
+  content: 'Older Posts';
+  padding-right: 35px;
+}
+
+.pagination li a[rel~="prev"]::after {
+  content: '\2190';
+  left: 7px;
+}
+
+.pagination li a[rel~="next"]::after {
+  content: '\1F812';
+  right: 7px;
 }
 
 .btn {
@@ -437,7 +480,7 @@ footer .copyright {
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
   color: #fff;
   background-color: #00657b !important;
-  border-color: #00657b !important;
+  border-color: #005e74 !important;
 }
 
 .btn-lg {

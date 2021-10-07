@@ -18,6 +18,13 @@ class Posts extends CI_Controller
         $config['reuse_query_string']   = TRUE;
         $config['total_rows']           = $totalRows;
         $config['per_page']             = 12;
+
+        if($this->Static_model->get_static_data()['has_pager']){
+            $config['display_pages'] = FALSE;
+						$config['first_link'] = FALSE;
+						$config['last_link'] = FALSE;
+        }
+
         if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
             $_GET[$config['query_string_segment']] = 1;
         }
@@ -34,10 +41,8 @@ class Posts extends CI_Controller
     
     public function index()
     {
-        
         //call initialization method
         $config = $this->_initPagination("/", $this->Posts_model->get_num_rows());
-        
         $data                  = $this->Static_model->get_static_data();
         $data['base_url']      = base_url("/");
         $data['pages']         = $this->Pages_model->get_pages();
