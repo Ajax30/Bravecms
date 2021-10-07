@@ -410,6 +410,10 @@ footer .copyright {
   text-align: center;
 }
 
+.pagination {
+  justify-content: space-between;
+}
+
 .pagination li {
   display: inline-block;
 }
@@ -417,10 +421,6 @@ footer .copyright {
 .pagination li a {
   text-decoration: none;
   position: relative;
-}
-
-.pagination li:first-child {
-  margin-right: auto;
 }
 
 .pagination li a::before {

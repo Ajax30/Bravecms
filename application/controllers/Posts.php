@@ -19,9 +19,11 @@ class Posts extends CI_Controller
         $config['total_rows']           = $totalRows;
         $config['per_page']             = 12;
 
-        $config['display_pages'] = FALSE;
-        $config['first_link'] = FALSE;
-        $config['last_link'] = FALSE;
+        if($this->Static_model->get_static_data()['has_pager']){
+            $config['display_pages'] = FALSE;
+						$config['first_link'] = FALSE;
+						$config['last_link'] = FALSE;
+        }
 
         if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
             $_GET[$config['query_string_segment']] = 1;
