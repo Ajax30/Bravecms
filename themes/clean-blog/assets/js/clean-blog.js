@@ -40,6 +40,6 @@
 
   // Hide pagination items content
 
-  $('.pagination li a').html('');
+  //$('.pagination li a').html('');
 
 })(jQuery); // End of use strict

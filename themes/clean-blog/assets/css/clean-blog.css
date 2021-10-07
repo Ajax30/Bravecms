@@ -443,12 +443,12 @@ footer .copyright {
   transform: translateY(-50%);
 }
 
-.pagination li:first-child a::before {
+.pagination li a[rel~="prev"]::before {
   content: 'Newer Posts';
   padding-left: 35px;
 }
 
-.pagination li:last-child a::before {
+.pagination li a[rel~="next"]::before {
   content: 'Older Posts';
   padding-right: 35px;
 }
