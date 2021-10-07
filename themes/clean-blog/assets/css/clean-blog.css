@@ -410,24 +410,20 @@ footer .copyright {
   text-align: center;
 }
 
-.pagination li:first-child {
+.pagination li {
   display: inline-block;
-  margin-right: auto;
 }
 
-.pagination li.active + li {
-  display: inline-block;
-  margin-left: auto;
-}
-
-.pagination li,
-.pagination li.active {
-  display: none;
+.pagination li a {
+  text-decoration: none;
   position: relative;
 }
 
-.pagination li:first-child a::before,
-.pagination li.active + li a::before {
+.pagination li:first-child {
+  margin-right: auto;
+}
+
+.pagination li a::before {
   display: inline-block;
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background-color: #0085a1;
@@ -440,30 +436,29 @@ footer .copyright {
   text-transform: uppercase;
 }
 
-.pagination li:first-child a::before {
-  content: 'Newer Posts';
-  padding-left: 35px;
-}
-
-.pagination li.active + li a::before {
-  content: 'Older Posts';
-  padding-right: 35px;
-}
-
-.pagination li:first-child a::after,
-.pagination li.active + li a::after {
+.pagination li a::after {
   color: #fff;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
 }
 
-.pagination li:first-child a::after {
+.pagination li:first-child a::before {
+  content: 'Newer Posts';
+  padding-left: 35px;
+}
+
+.pagination li:last-child a::before {
+  content: 'Older Posts';
+  padding-right: 35px;
+}
+
+.pagination li a[rel~="prev"]::after {
   content: '\2190';
   left: 7px;
 }
 
-.pagination li.active + li a::after {
+.pagination li a[rel~="next"]::after {
   content: '\1F812';
   right: 7px;
 }

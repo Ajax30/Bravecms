@@ -18,6 +18,11 @@ class Posts extends CI_Controller
         $config['reuse_query_string']   = TRUE;
         $config['total_rows']           = $totalRows;
         $config['per_page']             = 12;
+
+        $config['display_pages'] = FALSE;
+        $config['first_link'] = FALSE;
+        $config['last_link'] = FALSE;
+
         if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
             $_GET[$config['query_string_segment']] = 1;
         }
