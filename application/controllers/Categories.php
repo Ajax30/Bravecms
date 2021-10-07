@@ -15,6 +15,12 @@ class Categories extends CI_Controller {
 		$config['query_string_segment'] = 'page';
 		$config['total_rows'] =	$this->Posts_model->get_num_rows_by_category($category_id);
 		$config['per_page'] = 12;
+
+		if($this->Static_model->get_static_data()['has_pager']){
+				$config['display_pages'] = FALSE;
+				$config['first_link'] = FALSE;
+				$config['last_link'] = FALSE;
+		}
 		
 		if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
 			$_GET[$config['query_string_segment']] = 1;
