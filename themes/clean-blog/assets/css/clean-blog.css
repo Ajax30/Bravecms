@@ -410,12 +410,16 @@ footer .copyright {
   text-align: center;
 }
 
-.pagination {
-  justify-content: space-between;
-}
-
 .pagination li {
   display: inline-block;
+}
+
+.pagination li.prev {
+  margin-right: auto;
+}
+
+.pagination li.next {
+  margin-left: auto;
 }
 
 .pagination li a {
@@ -443,22 +447,22 @@ footer .copyright {
   transform: translateY(-50%);
 }
 
-.pagination li a[rel~="prev"]::before {
+.pagination li.prev a::before {
   content: 'Newer Posts';
   padding-left: 35px;
 }
 
-.pagination li a[rel~="next"]::before {
+.pagination li.next a::before {
   content: 'Older Posts';
   padding-right: 35px;
 }
 
-.pagination li a[rel~="prev"]::after {
+.pagination li.prev a::after {
   content: '\2190';
   left: 7px;
 }
 
-.pagination li a[rel~="next"]::after {
+.pagination li.next a::after {
   content: '\1F812';
   right: 7px;
 }

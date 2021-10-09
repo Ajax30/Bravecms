@@ -23,6 +23,10 @@ class Posts extends CI_Controller
             $config['display_pages'] = FALSE;
 						$config['first_link'] = FALSE;
 						$config['last_link'] = FALSE;
+						$config['prev_tag_open'] = '<li class="prev">';
+						$config['prev_tag_close'] = '</li>';
+						$config['next_tag_open'] = '<li class="next">';
+						$config['next_tag_close'] = '</li>';
         }
 
         if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {
@@ -105,6 +109,10 @@ class Posts extends CI_Controller
 					$config['display_pages'] = FALSE;
 					$config['first_link'] = FALSE;
 					$config['last_link'] = FALSE;
+					$config['prev_tag_open'] = '<li class="prev">';
+					$config['prev_tag_close'] = '</li>';
+					$config['next_tag_open'] = '<li class="next">';
+					$config['next_tag_close'] = '</li>';
 				}
         
         if (!isset($_GET[$config['query_string_segment']]) || $_GET[$config['query_string_segment']] < 1) {

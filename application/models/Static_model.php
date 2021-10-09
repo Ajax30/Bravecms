@@ -12,9 +12,9 @@ class Static_model extends CI_Model {
 		$data['twitter'] = "https://twitter.com/";
 		$data['facebook'] = "https://facebook.com/";
 		$data['instagram'] = "https://instagram.com/";
-		$data['has_pager'] = false;
+		$data['has_pager'] = true;
 
-		$data['theme_directory'] = "calvin";
+		$data['theme_directory'] = "clean-blog";
 		$data['is_frontend'] = false;
 		$data['is_ckeditor'] = false;
 		$data['is_newsletter'] = true;
