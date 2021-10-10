@@ -10,7 +10,7 @@ class Posts extends CI_Controller
 
   private function _initPagination($path, $totalRows, $query_string_segment = 'page')
   {
-    //load and configure pagination 
+    // load and configure pagination 
     $this->load->library('pagination');
     $config['base_url']             = base_url($path);
     $config['query_string_segment'] = $query_string_segment;
