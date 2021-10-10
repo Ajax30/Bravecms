@@ -20,10 +20,11 @@
     })
     .done(function(data) {
       $('.loader').hide();
+      // Get post from page 2 onward
       if (currentPage >= 2) {
         var posts = $(data).find('#postsContainer').html();
       } 
-      // If there are no more posts, show loader
+      // If there are no more posts, hide loader
       //  Otherwise, load more posts
       if (posts == 'undefined') {
         $('.loader').hide();
