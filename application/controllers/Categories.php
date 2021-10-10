@@ -10,7 +10,7 @@ class Categories extends CI_Controller
     
     public function posts($category_id)
     {
-        //load and configure pagination 
+        // load and configure pagination 
         $this->load->library('pagination');
         $config['base_url']             = base_url('/categories/posts/' . $category_id);
         $config['query_string_segment'] = 'page';
