@@ -1,8 +1,7 @@
 <!-- Main Content -->
   <div class="container">
     <div class="row">
-      <div class="col-lg-8 col-md-10 mx-auto">
-			
+      <div class="col-lg-8 col-md-10 mx-auto" id="postsContainer">
 				{# Search Results #}
 				{% if expression is defined and posts_count is defined %}
 					<p class="mt-0 text-muted {{ posts_count == 0 ? 'text-center' : '' }}">

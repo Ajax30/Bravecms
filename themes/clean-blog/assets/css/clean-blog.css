@@ -395,19 +395,34 @@ header.masthead .post-heading .meta a {
   box-shadow: none !important;
 }
 
-footer {
-  padding: 50px 0 65px;
+.loader {
+  height: 60px;
+  display: none;
 }
 
-footer .list-inline {
-  margin: 0;
-  padding: 0;
+.loader span {
+  display: inline-block;
+  border: 5px solid #cbcbcb;
+  border-radius: 50%;
+  border-top: 5px solid transparent;
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  left: 50%;
+  margin-left: -50px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
 }
 
-footer .copyright {
-  font-size: 14px;
-  margin-bottom: 0;
-  text-align: center;
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 .pagination li {
@@ -465,6 +480,21 @@ footer .copyright {
 .pagination li.next a::after {
   content: '\1F812';
   right: 7px;
+}
+
+footer {
+  padding: 50px 0 65px;
+}
+
+footer .list-inline {
+  margin: 0;
+  padding: 0;
+}
+
+footer .copyright {
+  font-size: 14px;
+  margin-bottom: 0;
+  text-align: center;
 }
 
 .btn {
