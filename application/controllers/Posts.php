@@ -38,8 +38,8 @@ class Posts extends CI_Controller
         $offset = ($this->input->get($config['query_string_segment']) - 1) * $limit;
         
         return array(
-            'limit' => $limit,
-            'offset' => $offset
+          'limit' => $limit,
+          'offset' => $offset
         );
     }
     
