@@ -19,7 +19,7 @@ class Static_model extends CI_Model {
 		$data['is_newsletter'] = true;
 		$data['is_cookieconsent'] = true;
 		$data['has_pager'] = true;
-		$data['is_ajax_loading'] = false;
+		$data['is_ajax_loading'] = true;
 		return $data;
 	}
 
