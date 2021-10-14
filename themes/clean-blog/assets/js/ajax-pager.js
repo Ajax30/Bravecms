@@ -1,6 +1,6 @@
 (function($) {
 
-	var currentPage = 1;
+	var currentPage = 2;
   var posts = null;
 
 	$('.pagination').hide();
@@ -23,10 +23,9 @@
     })
     .done(function(data) {
       $('.loader').hide();
-      // Get post from page 2 onward
-      if (currentPage >= 2) {
-        posts = $(data).find('#postsContainer').html();
-      } 
+
+      posts = $(data).find('#postsContainer').html();
+
       // If there are no more posts, hide loader
       //  Otherwise, load more posts
       if (typeof posts == 'undefined') {
