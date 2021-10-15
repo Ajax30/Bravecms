@@ -1,6 +1,6 @@
 {% if posts %}
 	{% if is_ajax_loading %}
-	<div id="postsContainer">
+	<div id="postsContainer" data-max-page="{{max_page}}">
 	{% endif %}
 		{% for post in posts %}
 			<div class="post-preview">

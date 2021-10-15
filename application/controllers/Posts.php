@@ -52,9 +52,9 @@ class Posts extends CI_Controller
     $data['pages']         = $this->Pages_model->get_pages();
     $data['categories']    = $this->Categories_model->get_categories();
     $data['search_errors'] = validation_errors();
-
-    //Use limit and offset returned by _initPaginator method
     $data['posts'] = $this->Posts_model->get_posts($config['limit'], $config['offset']);
+    $data['max_page'] = ceil($this->Posts_model->get_num_rows() / 12);
+
     $this->twig->addGlobal('pagination', $this->pagination->create_links());
 
     // Featured posts
@@ -91,6 +91,8 @@ class Posts extends CI_Controller
       $data['posts']        = $this->Posts_model->search($expression, $config['limit'], $config['offset']);
       $data['expression']   = $expression;
       $data['posts_count']  = $posts_count;
+      $data['max_page'] = ceil($posts_count / 12);
+      
       $this->twig->addGlobal('pagination', $this->pagination->create_links());
       $this->twig->display("themes/{$data['theme_directory']}/layout", $data);
     }
@@ -129,6 +131,7 @@ class Posts extends CI_Controller
     $data['categories']   = $this->Categories_model->get_categories();
     $data['posts']        = $this->Posts_model->get_posts_by_author($authorid, $limit, $offset);
     $data['posts_count']  = $this->Posts_model->posts_by_author_count($authorid);
+    $data['max_page'] = ceil($data['posts_count'] / $limit);
     $data['posts_author'] = $this->Posts_model->posts_author($authorid);
     $data['tagline']      = "Posts by " . $data['posts_author']->first_name . " " . $data['posts_author']->last_name;
 
