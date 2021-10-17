@@ -12,15 +12,10 @@
 					Posted {% if category_name is null %}in <a href="{{base_url}}categories/posts/{{post.cat_id}}" title="All posts in {{post.post_category}}">{{post.post_category}}</a>,{% endif %} on {{post.created_at | date("M d, Y")}}
         </p>
 			</div>
-      {% if not is_ajax_loading %}
-			  {% if not loop.last %}<hr>{% endif %}
-      {% else %}
-        <hr>
-      {% endif %}	
+      <hr class="posts-separator">
 		{% endfor %}
 
 	{% if is_ajax_loading %}
-    <span id="lighthouse"></span>
 	</div>
 	{% endif %}	
 {% else %}

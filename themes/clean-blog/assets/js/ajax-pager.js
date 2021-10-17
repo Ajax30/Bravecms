@@ -23,7 +23,6 @@
               url: `${pageBaseUrl}?${typeof searchStr === 'string' ? searchStr : ''}&page=${currentPage}`,
               type: 'GET',
               beforeSend: function() {
-                  console.log(this.url);
                   if (typeof posts != 'undefined') {
                       $('.loader').show();
                   }
@@ -35,12 +34,12 @@
 
               if (typeof posts != 'undefined') {
 
-                  $(posts).insertBefore('#lighthouse');
-                  currentPage = currentPage + 1;
+                $('#postsContainer').append(posts);
+                currentPage = currentPage + 1;
 
-                  if (currentPage > maxPage) {
-                      $('<p class="text-center text-muted">No more posts to load</p>').insertBefore('#lighthouse');
-                  }
+                if (currentPage > maxPage) {
+                  $('#postsContainer').append('<p class="text-center text-muted">No more posts to load</p>');
+                }
               }
           });
   }

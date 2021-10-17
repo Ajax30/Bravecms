@@ -356,43 +356,8 @@ header.masthead .post-heading .meta a {
   color: #0085A1;
 }
 
-@media only screen and (min-width: 768px) {
-  .post-preview > a > .post-title {
-    font-size: 36px;
-  }
-}
-
-.alert-hidden {
+.posts-separator:last-of-type {
   display: none;
-}
-
-.form-error {
-  font-size: .9rem;
-  margin: 0 0 5px 0;
-}
-
-.form-error:last-child {
-  margin-bottom: 0;
-}
-
-.form-group {
-  position: relative;
-}
-
-.form-group label.error {
-  margin: 0;
-  position: absolute;
-  right: 7px;
-  bottom: 3px;
-  color: #a94442;
-  font-size: 11px;
-}
-
-.form-group .form-control {
-  border: 0;
-  border-bottom: 1px solid #dee2e6;
-  border-radius: 0;
-  box-shadow: none !important;
 }
 
 .loader {
@@ -480,6 +445,45 @@ header.masthead .post-heading .meta a {
 .pagination li.next a::after {
   content: '\1F812';
   right: 7px;
+}
+
+@media only screen and (min-width: 768px) {
+  .post-preview > a > .post-title {
+    font-size: 36px;
+  }
+}
+
+.alert-hidden {
+  display: none;
+}
+
+.form-error {
+  font-size: .9rem;
+  margin: 0 0 5px 0;
+}
+
+.form-error:last-child {
+  margin-bottom: 0;
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group label.error {
+  margin: 0;
+  position: absolute;
+  right: 7px;
+  bottom: 3px;
+  color: #a94442;
+  font-size: 11px;
+}
+
+.form-group .form-control {
+  border: 0;
+  border-bottom: 1px solid #dee2e6;
+  border-radius: 0;
+  box-shadow: none !important;
 }
 
 footer {
