@@ -2,7 +2,9 @@
 
   var currentPage = 2,
 			maxPage = $('#postsContainer').data('max-page'),
-  		posts = null;
+  		posts = null,
+      pageUrl =  $(location).attr('href'),
+      pageBaseUrl = pageUrl.split('?')[0];
 
   $('.pagination').hide();
 
@@ -15,8 +17,9 @@
   });
 
   function loadMore() {
+
       $.ajax({
-          url: baseUrl + '?page=' + currentPage,
+          url: pageBaseUrl + '?page=' + currentPage,
           type: 'GET',
           beforeSend: function() {
             if (typeof posts != 'undefined') {
@@ -29,11 +32,12 @@
           posts = $(data).find('#postsContainer').html();
 
           if (typeof posts != 'undefined') {
-						$('#postsContainer').append(posts);
+
+            $(posts).insertBefore('#lighthouse');
             currentPage = currentPage + 1;
 
 						if (currentPage > maxPage) {
-							$('#postsContainer').append('<p class="text-center text-muted">No more posts to load</p>');
+							$('<p class="text-center text-muted">No more posts to load</p>').insertBefore('#lighthouse');
 						}
           } 
       });

@@ -131,8 +131,8 @@ class Posts extends CI_Controller
     $data['categories']   = $this->Categories_model->get_categories();
     $data['posts']        = $this->Posts_model->get_posts_by_author($authorid, $limit, $offset);
     $data['posts_count']  = $this->Posts_model->posts_by_author_count($authorid);
-    $data['max_page'] = ceil($data['posts_count'] / $limit);
     $data['posts_author'] = $this->Posts_model->posts_author($authorid);
+    $data['max_page'] = ceil($data['posts_count'] / $limit);
     $data['tagline']      = "Posts by " . $data['posts_author']->first_name . " " . $data['posts_author']->last_name;
 
     $this->twig->addGlobal('pagination', $this->pagination->create_links());

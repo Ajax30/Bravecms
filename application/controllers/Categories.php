@@ -42,7 +42,8 @@ class Categories extends CI_Controller
         $data['category_name'] = $this->Categories_model->get_category($category_id)->name;
         $data['tagline']       = $data['category_name'];
         $data['posts']         = $this->Posts_model->get_posts_by_category($category_id, $limit, $offset);
-        
+        $data['max_page'] = ceil($config['total_rows'] / $limit);
+
         $this->twig->addGlobal('pagination', $this->pagination->create_links());
         $this->twig->display("themes/{$data['theme_directory']}/layout", $data);
     } 
