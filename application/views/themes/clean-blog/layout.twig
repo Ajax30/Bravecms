@@ -152,6 +152,9 @@
   <!-- Theme-specific scripts -->
   <script src="{{base_url}}themes/{{theme_directory}}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="{{base_url}}themes/{{theme_directory}}/assets/js/clean-blog.min.js"></script>
+  {% if is_ajax_loading == true %} 
+  <script src="{{base_url}}themes/{{theme_directory}}/assets/js/ajax-pager.js"></script>
+  {% endif %}
   {% if is_cookieconsent == true %} 
   <script>
       window.cookieconsent.initialise({
