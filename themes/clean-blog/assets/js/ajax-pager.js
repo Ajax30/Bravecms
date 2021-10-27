@@ -3,9 +3,8 @@
   var currentPage = 2,
       maxPage = $('#postsContainer').data('max-page'),
       posts = null,
-      pageUrl = $(location).attr('href');
-
-  const [pageBaseUrl, searchStr] = pageUrl.split('?');
+      pageUrl = $(location).attr('href'),
+      [pageBaseUrl, searchStr] = pageUrl.split('?');
 
   $('.pagination').hide();
 
